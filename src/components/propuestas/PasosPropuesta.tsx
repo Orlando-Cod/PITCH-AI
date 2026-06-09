@@ -3,6 +3,10 @@
 import { useState } from "react";
 import SelectorExhibidor from "./SelectorExhibidor";
 import CatalogoProductos from "./CatalogoProductos";
+import FormParametros, { type FormParametrosData, isFormValido } from "./FormParametros";
+import VistaPrevia from "./VistaPrevia";
+import { EXHIBIDORES } from "@/lib/data/exhibidores";
+import { PRODUCTOS } from "@/lib/mock-data/productos";
 
 const PASOS = [
   { n: 1, label: "Exhibidor" },
@@ -15,6 +19,10 @@ export default function PasosPropuesta() {
   const [paso, setPaso] = useState(1);
   const [exhibidorId, setExhibidorId] = useState("");
   const [productosSeleccionados, setProductosSeleccionados] = useState<string[]>([]);
+  const [parametros, setParametros] = useState<Partial<FormParametrosData>>({});
+
+  const exhibidor = EXHIBIDORES.find((e) => e.id === exhibidorId);
+  const productos = PRODUCTOS.filter((p) => productosSeleccionados.includes(p.sku));
 
   function toggleProducto(sku: string) {
     setProductosSeleccionados((prev) =>
@@ -29,6 +37,11 @@ export default function PasosPropuesta() {
   function retroceder() {
     if (paso > 1) setPaso(paso - 1);
   }
+
+  const puedeAvanzar =
+    (paso === 1 && !!exhibidorId) ||
+    (paso === 2 && productosSeleccionados.length > 0) ||
+    (paso === 3 && isFormValido(parametros));
 
   return (
     <div className="p-8">
@@ -82,9 +95,7 @@ export default function PasosPropuesta() {
         {paso === 1 && (
           <div>
             <div className="mb-6">
-              <h2 className="text-lg font-semibold text-white mb-1">
-                Selecciona el exhibidor
-              </h2>
+              <h2 className="text-lg font-semibold text-white mb-1">Selecciona el exhibidor</h2>
               <p className="text-slate-400 text-sm">
                 Elige el tipo de mueble que irá en el punto de venta del cliente.
               </p>
@@ -97,12 +108,9 @@ export default function PasosPropuesta() {
         {paso === 2 && (
           <div>
             <div className="mb-6">
-              <h2 className="text-lg font-semibold text-white mb-1">
-                Selecciona los productos
-              </h2>
+              <h2 className="text-lg font-semibold text-white mb-1">Selecciona los productos</h2>
               <p className="text-slate-400 text-sm">
-                Haz clic en cada producto para agregarlo a la propuesta.
-                Puedes filtrar por categoría, precio o buscar por nombre.
+                Haz clic en cada producto para agregarlo. Filtra por categoría, precio o busca por nombre.
               </p>
             </div>
             <CatalogoProductos
@@ -114,63 +122,78 @@ export default function PasosPropuesta() {
 
         {/* ── Paso 3: Parámetros ── */}
         {paso === 3 && (
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center py-16">
-            <div className="text-5xl mb-4">⚙️</div>
-            <h2 className="text-white font-semibold text-lg mb-2">Parámetros de la propuesta</h2>
-            <p className="text-slate-500 text-sm max-w-sm mx-auto">
-              Aquí irá el formulario de cliente, país, precio objetivo, descuento y observaciones.
-            </p>
-            <div className="mt-6 bg-slate-800 rounded-xl p-4 text-left max-w-sm mx-auto">
-              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Resumen</p>
-              <p className="text-slate-300 text-sm">Exhibidor: <span className="text-white">{exhibidorId || "—"}</span></p>
-              <p className="text-slate-300 text-sm">Productos seleccionados: <span className="text-white">{productosSeleccionados.length}</span></p>
+          <div>
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold text-white mb-1">Parámetros de la propuesta</h2>
+              <p className="text-slate-400 text-sm">
+                Completa los datos del cliente y las condiciones comerciales.
+              </p>
+            </div>
+            <FormParametros
+              exhibidorId={exhibidorId}
+              valor={parametros}
+              onChange={setParametros}
+            />
+          </div>
+        )}
+
+        {/* ── Paso 4: Vista previa y generación ── */}
+        {paso === 4 && exhibidor && (
+          <div>
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold text-white mb-1">Revisar y generar</h2>
+              <p className="text-slate-400 text-sm">
+                Revisa el resumen y descarga el archivo PowerPoint listo para presentar.
+              </p>
+            </div>
+            <VistaPrevia
+              exhibidor={exhibidor}
+              productos={productos}
+              parametros={parametros}
+            />
+          </div>
+        )}
+
+        {/* ── Navegación ── */}
+        {paso < 4 && (
+          <div className="mt-8 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={retroceder}
+              disabled={paso === 1}
+              className="px-6 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              ← Atrás
+            </button>
+            <div className="flex items-center gap-3">
+              {paso === 2 && productosSeleccionados.length > 0 && (
+                <span className="text-slate-400 text-sm">
+                  {productosSeleccionados.length} producto{productosSeleccionados.length !== 1 ? "s" : ""} listo{productosSeleccionados.length !== 1 ? "s" : ""}
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={avanzar}
+                disabled={!puedeAvanzar}
+                className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-semibold px-8 py-2.5 rounded-xl text-sm transition-colors"
+              >
+                {paso === 3 ? "Ver propuesta →" : "Continuar →"}
+              </button>
             </div>
           </div>
         )}
 
-        {/* ── Paso 4: Generar ── */}
         {paso === 4 && (
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center py-16">
-            <div className="text-5xl mb-4">🚀</div>
-            <h2 className="text-white font-semibold text-lg mb-2">Generar propuesta</h2>
-            <p className="text-slate-500 text-sm max-w-sm mx-auto">
-              El sistema construirá los slides automáticamente con diseño corporativo
-              Sicoben y los productos seleccionados.
-            </p>
-          </div>
-        )}
-
-        {/* ── Botones de navegación ── */}
-        <div className="mt-8 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={retroceder}
-            disabled={paso === 1}
-            className="px-6 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-          >
-            ← Atrás
-          </button>
-
-          <div className="flex items-center gap-3">
-            {paso === 2 && productosSeleccionados.length > 0 && (
-              <span className="text-slate-400 text-sm">
-                {productosSeleccionados.length} producto{productosSeleccionados.length !== 1 ? "s" : ""} listo{productosSeleccionados.length !== 1 ? "s" : ""}
-              </span>
-            )}
+          <div className="mt-8">
             <button
               type="button"
-              onClick={avanzar}
-              disabled={
-                (paso === 1 && !exhibidorId) ||
-                (paso === 2 && productosSeleccionados.length === 0) ||
-                paso === 4
-              }
-              className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-semibold px-8 py-2.5 rounded-xl text-sm transition-colors"
+              onClick={retroceder}
+              className="px-6 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white transition-colors"
             >
-              {paso === 3 ? "Generar Propuesta →" : "Continuar →"}
+              ← Volver a parámetros
             </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
