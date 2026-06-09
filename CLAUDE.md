@@ -72,6 +72,20 @@ types/                  # Tipos TypeScript del dominio (Propuesta, Producto, Dis
 - Highlight: Orange (`orange-500`, `orange-600`)
 - Fondo secciones: bokeh suave relacionado a libros
 
+## Ramas Git
+
+Este proyecto tiene exactamente **dos ramas**. Nunca crear otras sin instrucción explícita del usuario.
+
+| Rama | Propósito | Alias que el usuario puede usar |
+|------|-----------|---------------------------------|
+| `main` | Producción — lo que los usuarios ven online | "producción", "prod", "main", "online", "la web", "publicar", "subir a producción", "lo que los usuarios van a ver" |
+| `staging` | Desarrollo — donde se prueban los cambios | "desarrollo", "development", "dev", "staging", "ambiente de prueba", "entorno de pruebas" |
+
+**Reglas:**
+- Todos los commits van en `staging` por defecto.
+- Solo se mergea `staging → main` cuando el usuario pide publicar o subir a producción.
+- Si el usuario pide crear una rama para una funcionalidad concreta, crearla a partir de `staging` — no de `main`.
+
 ## Workflow
 
 - Antes de implementar una funcionalidad, revisar si existen patrones similares en `components/` o `lib/`
