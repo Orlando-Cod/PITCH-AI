@@ -41,6 +41,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code hooks — flag de confirmacion de push
+.claude/.push-confirmed
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*

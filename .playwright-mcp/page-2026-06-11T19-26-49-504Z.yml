@@ -1,0 +1,199 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: sicoben
+        - generic [ref=e7]: Ediciones
+      - navigation [ref=e8]:
+        - link "⊞ Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e10]: ⊞
+          - text: Dashboard
+        - link "＋ Nueva Propuesta" [ref=e11] [cursor=pointer]:
+          - /url: /nueva-propuesta
+          - generic [ref=e12]: ＋
+          - text: Nueva Propuesta
+        - link "◷ Historial" [ref=e13] [cursor=pointer]:
+          - /url: /historial
+          - generic [ref=e14]: ◷
+          - text: Historial
+      - link "↩ Cerrar Sesión" [ref=e16] [cursor=pointer]:
+        - /url: /login
+        - generic [ref=e17]: ↩
+        - text: Cerrar Sesión
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: © 2026 Sicoben Ediciones
+        - navigation [ref=e21]:
+          - link "Privacidad" [ref=e22] [cursor=pointer]:
+            - /url: /privacidad
+          - link "Términos" [ref=e23] [cursor=pointer]:
+            - /url: /terminos
+          - link "Aviso" [ref=e24] [cursor=pointer]:
+            - /url: /aviso-legal
+          - link "Cookies" [ref=e25] [cursor=pointer]:
+            - /url: /cookies
+    - main [ref=e26]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Nueva Propuesta" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Selecciona exhibidor, productos y datos del cliente.
+        - generic [ref=e32]:
+          - button "✓ Exhibidor" [ref=e338]:
+            - generic [ref=e35]: ✓
+            - generic [ref=e36]: Exhibidor
+          - button "✓ Licencias" [ref=e387]:
+            - generic [ref=e40]: ✓
+            - generic [ref=e41]: Licencias
+          - button "3 Productos" [ref=e44]:
+            - generic [ref=e45]: "3"
+            - generic [ref=e46]: Productos
+          - button "4 Parámetros" [ref=e49]:
+            - generic [ref=e50]: "4"
+            - generic [ref=e51]: Parámetros
+          - button "5 Generar" [ref=e54]:
+            - generic [ref=e55]: "5"
+            - generic [ref=e56]: Generar
+        - generic [ref=e388]:
+          - generic [ref=e389]:
+            - heading "Selecciona los productos" [level=2] [ref=e390]
+            - paragraph [ref=e391]: Haz clic en cada producto para agregarlo. Filtra por categoría, precio o busca por nombre.
+          - generic [ref=e392]:
+            - generic [ref=e393]:
+              - generic [ref=e394]: "Mostrando:"
+              - generic [ref=e395]: Disney
+              - generic [ref=e396]: Bluey
+            - generic [ref=e397]:
+              - generic [ref=e398]:
+                - generic [ref=e399]: 🔍
+                - textbox "Buscar por colección o SKU..." [ref=e400]
+              - combobox [ref=e401]:
+                - option "Todos los precios" [selected]
+                - option "Hasta $1.00"
+                - option "$1.00 – $2.00"
+                - option "$2.00 – $5.00"
+                - option "Más de $5.00"
+              - generic [ref=e402] [cursor=pointer]:
+                - checkbox "Solo con stock" [checked] [ref=e403]
+                - text: Solo con stock
+            - generic [ref=e404]:
+              - button "Todos7" [ref=e405]
+              - button "Lectura6" [ref=e406]
+              - button "Colorear1" [ref=e407]
+              - button "Actividades0" [ref=e408]
+              - button "Pasatiempos0" [ref=e409]
+              - button "Packs0" [ref=e410]
+            - generic [ref=e411]:
+              - generic [ref=e412]:
+                - generic [ref=e413]:
+                  - generic [ref=e414]: Disney
+                  - generic [ref=e415]: 5 productos
+                - generic [ref=e417]:
+                  - 'button "Lectura CUENTOS CLÁSICOS 6 EN 1 BP-S-L-1038 📄 96 pág 📦 Stock: 38 $4.79 MOQ 24 Tapa dura Disney" [ref=e418]':
+                    - generic [ref=e419]: Lectura
+                    - paragraph [ref=e420]: CUENTOS CLÁSICOS 6 EN 1
+                    - paragraph [ref=e421]: BP-S-L-1038
+                    - generic [ref=e422]:
+                      - generic [ref=e423]:
+                        - generic [ref=e425]: 📄 96 pág
+                        - generic [ref=e427]: "📦 Stock: 38"
+                      - generic [ref=e428]:
+                        - generic [ref=e429]: $4.79
+                        - paragraph [ref=e430]: MOQ 24
+                    - generic [ref=e431]:
+                      - generic [ref=e432]: Tapa dura
+                      - generic [ref=e433]: Disney
+                  - 'button "Lectura CUENTOS CLASICOS BP-S-L-1429 📄 16 pág · 6 portadas 📦 Stock: 472 $0.95 MOQ 24 Disney" [ref=e434]':
+                    - generic [ref=e435]: Lectura
+                    - paragraph [ref=e436]: CUENTOS CLASICOS
+                    - paragraph [ref=e437]: BP-S-L-1429
+                    - generic [ref=e438]:
+                      - generic [ref=e439]:
+                        - generic [ref=e440]:
+                          - generic [ref=e441]: 📄 16 pág
+                          - generic [ref=e442]: · 6 portadas
+                        - generic [ref=e444]: "📦 Stock: 472"
+                      - generic [ref=e445]:
+                        - generic [ref=e446]: $0.95
+                        - paragraph [ref=e447]: MOQ 24
+                    - generic [ref=e449]: Disney
+                  - 'button "Lectura LEE CON PICTOGRAMAS MM-S-L-3248 📄 16 pág · 4 portadas 📦 Stock: 95 $0.93 MOQ 96 Disney" [ref=e450]':
+                    - generic [ref=e451]: Lectura
+                    - paragraph [ref=e452]: LEE CON PICTOGRAMAS
+                    - paragraph [ref=e453]: MM-S-L-3248
+                    - generic [ref=e454]:
+                      - generic [ref=e455]:
+                        - generic [ref=e456]:
+                          - generic [ref=e457]: 📄 16 pág
+                          - generic [ref=e458]: · 4 portadas
+                        - generic [ref=e460]: "📦 Stock: 95"
+                      - generic [ref=e461]:
+                        - generic [ref=e462]: $0.93
+                        - paragraph [ref=e463]: MOQ 96
+                    - generic [ref=e465]: Disney
+                  - 'button "Lectura POP UP MM-S-PU-8478 📄 6 pág · 4 portadas 📦 Stock: 141 $4.79 MOQ 24 Disney" [ref=e466]':
+                    - generic [ref=e467]: Lectura
+                    - paragraph [ref=e468]: POP UP
+                    - paragraph [ref=e469]: MM-S-PU-8478
+                    - generic [ref=e470]:
+                      - generic [ref=e471]:
+                        - generic [ref=e472]:
+                          - generic [ref=e473]: 📄 6 pág
+                          - generic [ref=e474]: · 4 portadas
+                        - generic [ref=e476]: "📦 Stock: 141"
+                      - generic [ref=e477]:
+                        - generic [ref=e478]: $4.79
+                        - paragraph [ref=e479]: MOQ 24
+                    - generic [ref=e481]: Disney
+                  - 'button "Colorear CUENTOS PARA COLOREAR BP-S-CL-2523 📄 16 pág · 4 portadas 📦 Stock: 492 $0.65 MOQ 24 Disney" [ref=e482]':
+                    - generic [ref=e483]: Colorear
+                    - paragraph [ref=e484]: CUENTOS PARA COLOREAR
+                    - paragraph [ref=e485]: BP-S-CL-2523
+                    - generic [ref=e486]:
+                      - generic [ref=e487]:
+                        - generic [ref=e488]:
+                          - generic [ref=e489]: 📄 16 pág
+                          - generic [ref=e490]: · 4 portadas
+                        - generic [ref=e492]: "📦 Stock: 492"
+                      - generic [ref=e493]:
+                        - generic [ref=e494]: $0.65
+                        - paragraph [ref=e495]: MOQ 24
+                    - generic [ref=e497]: Disney
+              - generic [ref=e498]:
+                - generic [ref=e499]:
+                  - generic [ref=e500]: Bluey
+                  - generic [ref=e501]: 2 productos
+                - generic [ref=e503]:
+                  - 'button "Lectura HACIENDO CAMINO BN-S-L-3634 📄 36 pág · 3 portadas 📦 Stock: 284 $3.49 MOQ 24 Bluey" [ref=e504]':
+                    - generic [ref=e505]: Lectura
+                    - paragraph [ref=e506]: HACIENDO CAMINO
+                    - paragraph [ref=e507]: BN-S-L-3634
+                    - generic [ref=e508]:
+                      - generic [ref=e509]:
+                        - generic [ref=e510]:
+                          - generic [ref=e511]: 📄 36 pág
+                          - generic [ref=e512]: · 3 portadas
+                        - generic [ref=e514]: "📦 Stock: 284"
+                      - generic [ref=e515]:
+                        - generic [ref=e516]: $3.49
+                        - paragraph [ref=e517]: MOQ 24
+                    - generic [ref=e519]: Bluey
+                  - 'button "Lectura PASOS DE GIGANTES BN-S-L-5423 📄 36 pág · 3 portadas 📦 Stock: 375 $3.49 MOQ 24 Bluey" [ref=e520]':
+                    - generic [ref=e521]: Lectura
+                    - paragraph [ref=e522]: PASOS DE GIGANTES
+                    - paragraph [ref=e523]: BN-S-L-5423
+                    - generic [ref=e524]:
+                      - generic [ref=e525]:
+                        - generic [ref=e526]:
+                          - generic [ref=e527]: 📄 36 pág
+                          - generic [ref=e528]: · 3 portadas
+                        - generic [ref=e530]: "📦 Stock: 375"
+                      - generic [ref=e531]:
+                        - generic [ref=e532]: $3.49
+                        - paragraph [ref=e533]: MOQ 24
+                    - generic [ref=e535]: Bluey
+        - generic [ref=e306]:
+          - button "← Atrás" [ref=e307]
+          - button "Continuar →" [disabled] [ref=e309]
+  - button "Open Next.js Dev Tools" [ref=e315] [cursor=pointer]:
+    - img [ref=e316]
+  - alert [ref=e319]

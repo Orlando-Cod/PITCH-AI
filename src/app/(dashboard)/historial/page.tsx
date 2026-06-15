@@ -15,8 +15,8 @@ export default function HistorialPage() {
             Historial de propuestas
           </h2>
           <p className="text-slate-500 text-sm max-w-sm mx-auto">
-            Aquí aparecerán todas las propuestas generadas con su estado,
-            cliente, fecha y acceso a re-descarga o edición.
+            Cada propuesta queda guardada aquí con su cliente, fecha y estado.
+            Podrás descargarla o editarla en cualquier momento.
           </p>
         </div>
       </div>

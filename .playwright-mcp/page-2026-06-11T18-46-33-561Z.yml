@@ -1,0 +1,68 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e11]:
+        - generic [ref=e12]: sicoben
+        - generic [ref=e13]: Ediciones
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Herramienta de ventas
+        - heading "Genera propuestas de display" [level=2] [ref=e16]:
+          - text: Genera propuestas
+          - text: de display
+        - paragraph [ref=e17]: Elige el exhibidor, selecciona los productos y ajusta precios — la presentación sale lista para el cliente en minutos.
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 📝
+          - generic [ref=e21]: PowerPoint editable
+        - generic [ref=e22]:
+          - generic [ref=e23]: 📄
+          - generic [ref=e24]: PDF para correo o WhatsApp
+        - generic [ref=e25]:
+          - generic [ref=e26]: 🔗
+          - generic [ref=e27]: Link compartible
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "Bienvenido" [level=2] [ref=e32]
+          - paragraph [ref=e33]: Ingresa tus credenciales para continuar
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: Correo electrónico
+            - textbox "nombre@sicoben.com" [ref=e37]: ventas@sicoben.com
+          - generic [ref=e38]:
+            - generic [ref=e39]: Contraseña
+            - textbox "••••••••" [ref=e40]: sicoben2026
+          - button "Entrando..." [disabled] [ref=e75]
+      - generic [ref=e42]:
+        - paragraph [ref=e43]: Credenciales de prueba
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: ventas@sicoben.com · sicoben2026
+          - paragraph [ref=e46]: admin@sicoben.com · sicoben2026
+      - contentinfo [ref=e47]:
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: © 2026 Sicoben Ediciones
+          - navigation [ref=e50]:
+            - link "Privacidad" [ref=e51] [cursor=pointer]:
+              - /url: /privacidad
+            - link "Términos" [ref=e52] [cursor=pointer]:
+              - /url: /terminos
+            - link "Aviso" [ref=e53] [cursor=pointer]:
+              - /url: /aviso-legal
+            - link "Cookies" [ref=e54] [cursor=pointer]:
+              - /url: /cookies
+  - button "Open Next.js Dev Tools" [ref=e60] [cursor=pointer]:
+    - img [ref=e61]
+  - alert [ref=e64]
+  - dialog "Preferencias de cookies" [ref=e65]:
+    - generic [ref=e67]:
+      - paragraph [ref=e68]:
+        - text: Usamos cookies para mantener tu sesión activa y mejorar tu experiencia.
+        - link "Política de cookies" [ref=e69] [cursor=pointer]:
+          - /url: /cookies
+        - text: ·
+        - link "Privacidad" [ref=e70] [cursor=pointer]:
+          - /url: /privacidad
+      - generic [ref=e71]:
+        - button "Rechazar todo" [ref=e72]
+        - button "Personalizar" [ref=e73]
+        - button "Aceptar todo" [ref=e74]

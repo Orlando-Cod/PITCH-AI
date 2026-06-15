@@ -1,6 +1,6 @@
 "use client";
 
-import { type Pais, type TipoCliente, type Descuento } from "@/types";
+import { type Pais, type TipoCliente, type Descuento, type Licencia, LICENCIAS } from "@/types";
 import { EXHIBIDORES } from "@/lib/data/exhibidores";
 
 const PAISES: Pais[] = ["Nicaragua", "Panamá", "Costa Rica", "Guatemala", "El Salvador", "Honduras"];
@@ -20,6 +20,7 @@ export type FormParametrosData = {
   carasACotizar: number;
   precioObjetivo: number;
   descuento: Descuento;
+  licencias?: Licencia[];
   temporada?: string;
   observaciones?: string;
 };
@@ -145,6 +146,39 @@ export default function FormParametros({ exhibidorId, valor, onChange }: Props) 
             <option value="">Seleccionar temporada</option>
             {TEMPORADAS.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
+        </div>
+      </div>
+
+      {/* Filtro de licencias */}
+      <div>
+        <label className={label}>Licencias</label>
+        <p className="text-xs text-slate-600 mb-2">
+          Deja vacío para incluir todas las licencias disponibles.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {LICENCIAS.map((lic) => {
+            const activa = (valor.licencias ?? []).includes(lic);
+            return (
+              <button
+                key={lic}
+                type="button"
+                onClick={() => {
+                  const actual = valor.licencias ?? [];
+                  set(
+                    "licencias",
+                    activa ? actual.filter((l) => l !== lic) : [...actual, lic]
+                  );
+                }}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                  activa
+                    ? "bg-blue-600 border-blue-500 text-white"
+                    : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300"
+                }`}
+              >
+                {lic}
+              </button>
+            );
+          })}
         </div>
       </div>
 

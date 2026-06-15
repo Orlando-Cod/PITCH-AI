@@ -1,0 +1,65 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: sicoben
+        - generic [ref=e7]: Ediciones
+      - navigation [ref=e8]:
+        - link "⊞ Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e10]: ⊞
+          - text: Dashboard
+        - link "＋ Nueva Propuesta" [ref=e11] [cursor=pointer]:
+          - /url: /nueva-propuesta
+          - generic [ref=e12]: ＋
+          - text: Nueva Propuesta
+        - link "◷ Historial" [ref=e14] [cursor=pointer]:
+          - /url: /historial
+          - generic [ref=e15]: ◷
+          - text: Historial
+      - link "↩ Cerrar Sesión" [ref=e17] [cursor=pointer]:
+        - /url: /login
+        - generic [ref=e18]: ↩
+        - text: Cerrar Sesión
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: © 2026 Sicoben Ediciones
+        - navigation [ref=e22]:
+          - link "Privacidad" [ref=e23] [cursor=pointer]:
+            - /url: /privacidad
+          - link "Términos" [ref=e24] [cursor=pointer]:
+            - /url: /terminos
+          - link "Aviso" [ref=e25] [cursor=pointer]:
+            - /url: /aviso-legal
+          - link "Cookies" [ref=e26] [cursor=pointer]:
+            - /url: /cookies
+    - main [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e31]:
+          - heading "Panel de propuestas" [level=1] [ref=e32]
+          - paragraph [ref=e33]: Revisa el estado de tus propuestas o crea una nueva.
+        - link "Nueva Propuesta Elige el exhibidor, selecciona productos y genera la presentación →" [ref=e34] [cursor=pointer]:
+          - /url: /nueva-propuesta
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - generic [ref=e39]: Nueva Propuesta
+              - generic [ref=e40]: Elige el exhibidor, selecciona productos y genera la presentación
+            - generic [ref=e41]: →
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: —
+            - generic [ref=e45]: Propuestas este mes
+          - generic [ref=e46]:
+            - generic [ref=e47]: —
+            - generic [ref=e48]: Clientes activos
+          - generic [ref=e49]:
+            - generic [ref=e50]: —
+            - generic [ref=e51]: Tiempo promedio
+        - generic [ref=e52]:
+          - heading "Propuestas recientes" [level=2] [ref=e53]
+          - generic [ref=e54]:
+            - generic [ref=e55]: 📋
+            - paragraph [ref=e56]: Aún no hay propuestas generadas.
+            - link "Crear primera propuesta →" [ref=e57] [cursor=pointer]:
+              - /url: /nueva-propuesta
+  - button "Open Next.js Dev Tools" [ref=e63] [cursor=pointer]:
+    - img [ref=e64]

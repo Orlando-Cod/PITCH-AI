@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { EXHIBIDORES, type Exhibidor } from "@/lib/data/exhibidores";
 
@@ -35,6 +34,56 @@ const COLORES = {
     text: "text-emerald-400",
     row: "bg-emerald-500/10",
   },
+  purple: {
+    border: "border-purple-500",
+    bg: "bg-purple-500/10",
+    badge: "bg-purple-500/20 text-purple-300",
+    tag: "bg-purple-600",
+    check: "bg-purple-500",
+    glow: "shadow-purple-500/20",
+    text: "text-purple-400",
+    row: "bg-purple-500/10",
+  },
+  red: {
+    border: "border-red-500",
+    bg: "bg-red-500/10",
+    badge: "bg-red-500/20 text-red-300",
+    tag: "bg-red-600",
+    check: "bg-red-500",
+    glow: "shadow-red-500/20",
+    text: "text-red-400",
+    row: "bg-red-500/10",
+  },
+  teal: {
+    border: "border-teal-500",
+    bg: "bg-teal-500/10",
+    badge: "bg-teal-500/20 text-teal-300",
+    tag: "bg-teal-600",
+    check: "bg-teal-500",
+    glow: "shadow-teal-500/20",
+    text: "text-teal-400",
+    row: "bg-teal-500/10",
+  },
+  indigo: {
+    border: "border-indigo-500",
+    bg: "bg-indigo-500/10",
+    badge: "bg-indigo-500/20 text-indigo-300",
+    tag: "bg-indigo-600",
+    check: "bg-indigo-500",
+    glow: "shadow-indigo-500/20",
+    text: "text-indigo-400",
+    row: "bg-indigo-500/10",
+  },
+  slate: {
+    border: "border-slate-400",
+    bg: "bg-slate-400/10",
+    badge: "bg-slate-400/20 text-slate-300",
+    tag: "bg-slate-500",
+    check: "bg-slate-400",
+    glow: "shadow-slate-400/20",
+    text: "text-slate-300",
+    row: "bg-slate-400/10",
+  },
 } as const;
 
 const FORMATOS: { key: keyof Exhibidor["capacidadPorEspacio"]; label: string }[] = [
@@ -60,7 +109,7 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {EXHIBIDORES.map((ex) => {
           const activo = seleccionado === ex.id;
           const c = COLORES[ex.color as keyof typeof COLORES];
@@ -90,14 +139,13 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
                 {ex.espacios} espacios
               </div>
 
-              {/* Foto real del exhibidor */}
+              {/* Lámina técnica del exhibidor */}
               <div className="relative w-full h-52 bg-slate-900 overflow-hidden">
-                <Image
-                  src={`/exhibidores/${ex.id}.png`}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={ex.imagen ?? `/api/exhibidor-image/${ex.id}`}
                   alt={ex.nombre}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="w-full h-full object-contain object-center p-3"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
               </div>
