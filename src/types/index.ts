@@ -1,3 +1,17 @@
+// ── Licencias ─────────────────────────────────────────────────────────────────
+export type Licencia =
+  | "Disney"
+  | "Mattel"
+  | "Hasbro"
+  | "Universal"
+  | "Paramount"
+  | "Bluey"
+  | "Sicoben Original";
+
+export const LICENCIAS: Licencia[] = [
+  "Disney", "Mattel", "Hasbro", "Universal", "Paramount", "Bluey", "Sicoben Original",
+];
+
 // ── Categorías de productos ───────────────────────────────────────────────────
 export type CategoriaProducto =
   | "LIBRO DE COLOREAR"
@@ -46,7 +60,8 @@ export interface Producto {
   stock: number;         // Inventario disponible
   tapaDura?: boolean;
   tieneStickers?: boolean;
-  licenciado?: boolean;  // Disney u otra licencia externa
+  licencia: Licencia;
+  portada?: string; // ruta en /public, ej: "/portadas/MM-S-C-2757.svg"
 }
 
 // ── Exhibidor ─────────────────────────────────────────────────────────────────
@@ -80,7 +95,7 @@ export interface ParametrosPropuesta {
   colecciones: GrupoCategoria[];
   precioObjetivo: number;        // Precio máximo por unidad ($)
   descuento: Descuento;
-  soloLicenciados?: boolean;
+  licencias?: Licencia[];
   temporada?: string;
   observaciones?: string;
 }

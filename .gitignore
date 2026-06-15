@@ -41,6 +41,17 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code hooks — flag de confirmacion de push
+.claude/.push-confirmed
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*
+
+# scripts con credenciales hardcodeadas — solo uso local
+scripts/reset-password.mjs
+scripts/crear-usuarios.mjs
+scripts/test-login.mjs

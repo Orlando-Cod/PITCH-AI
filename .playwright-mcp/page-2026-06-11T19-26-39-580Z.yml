@@ -1,0 +1,103 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: sicoben
+        - generic [ref=e7]: Ediciones
+      - navigation [ref=e8]:
+        - link "⊞ Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e10]: ⊞
+          - text: Dashboard
+        - link "＋ Nueva Propuesta" [ref=e11] [cursor=pointer]:
+          - /url: /nueva-propuesta
+          - generic [ref=e12]: ＋
+          - text: Nueva Propuesta
+        - link "◷ Historial" [ref=e13] [cursor=pointer]:
+          - /url: /historial
+          - generic [ref=e14]: ◷
+          - text: Historial
+      - link "↩ Cerrar Sesión" [ref=e16] [cursor=pointer]:
+        - /url: /login
+        - generic [ref=e17]: ↩
+        - text: Cerrar Sesión
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: © 2026 Sicoben Ediciones
+        - navigation [ref=e21]:
+          - link "Privacidad" [ref=e22] [cursor=pointer]:
+            - /url: /privacidad
+          - link "Términos" [ref=e23] [cursor=pointer]:
+            - /url: /terminos
+          - link "Aviso" [ref=e24] [cursor=pointer]:
+            - /url: /aviso-legal
+          - link "Cookies" [ref=e25] [cursor=pointer]:
+            - /url: /cookies
+    - main [ref=e26]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Nueva Propuesta" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Selecciona exhibidor, productos y datos del cliente.
+        - generic [ref=e32]:
+          - button "✓ Exhibidor" [ref=e338]:
+            - generic [ref=e35]: ✓
+            - generic [ref=e36]: Exhibidor
+          - button "2 Licencias" [ref=e39]:
+            - generic [ref=e40]: "2"
+            - generic [ref=e41]: Licencias
+          - button "3 Productos" [ref=e44]:
+            - generic [ref=e45]: "3"
+            - generic [ref=e46]: Productos
+          - button "4 Parámetros" [ref=e49]:
+            - generic [ref=e50]: "4"
+            - generic [ref=e51]: Parámetros
+          - button "5 Generar" [ref=e54]:
+            - generic [ref=e55]: "5"
+            - generic [ref=e56]: Generar
+        - generic [ref=e339]:
+          - generic [ref=e340]:
+            - heading "Selecciona las licencias" [level=2] [ref=e341]
+            - paragraph [ref=e342]: Elige una o más licencias. El catálogo del siguiente paso mostrará solo los productos correspondientes.
+          - generic [ref=e343]:
+            - generic [ref=e344]:
+              - button "✨ Disney 5 productos disponibles" [ref=e345]:
+                - img [ref=e374]
+                - generic [ref=e346]: ✨
+                - paragraph [ref=e347]: Disney
+                - paragraph [ref=e348]: 5 productos disponibles
+              - button "🎮 Mattel 2 productos disponibles" [ref=e349]:
+                - generic [ref=e350]: 🎮
+                - paragraph [ref=e351]: Mattel
+                - paragraph [ref=e352]: 2 productos disponibles
+              - button "🎲 Hasbro Sin productos" [disabled] [ref=e353]:
+                - generic [ref=e354]: 🎲
+                - paragraph [ref=e355]: Hasbro
+                - paragraph [ref=e356]: Sin productos
+              - button "🎬 Universal 3 productos disponibles" [ref=e357]:
+                - generic [ref=e358]: 🎬
+                - paragraph [ref=e359]: Universal
+                - paragraph [ref=e360]: 3 productos disponibles
+              - button "⭐ Paramount Sin productos" [disabled] [ref=e361]:
+                - generic [ref=e362]: ⭐
+                - paragraph [ref=e363]: Paramount
+                - paragraph [ref=e364]: Sin productos
+              - button "🐕 Bluey 2 productos disponibles" [active] [ref=e365]:
+                - img [ref=e383]
+                - generic [ref=e366]: 🐕
+                - paragraph [ref=e367]: Bluey
+                - paragraph [ref=e368]: 2 productos disponibles
+              - button "📚 Sicoben Original 65 productos disponibles" [ref=e369]:
+                - generic [ref=e370]: 📚
+                - paragraph [ref=e371]: Sicoben Original
+                - paragraph [ref=e372]: 65 productos disponibles
+            - generic [ref=e377]:
+              - generic [ref=e378]:
+                - generic [ref=e379]: "Seleccionadas:"
+                - generic [ref=e380]: Disney
+                - generic [ref=e386]: Bluey
+              - button "Limpiar" [ref=e381]
+        - generic [ref=e306]:
+          - button "← Atrás" [ref=e307]
+          - button "Continuar →" [ref=e309]
+  - button "Open Next.js Dev Tools" [ref=e315] [cursor=pointer]:
+    - img [ref=e316]
+  - alert [ref=e319]

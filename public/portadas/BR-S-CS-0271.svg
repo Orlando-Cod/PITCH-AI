@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="280" viewBox="0 0 200 280">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#880E4F"/>
+      <stop offset="100%" stop-color="#C2185B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="200" height="280" fill="url(#g)" rx="3"/>
+
+  <!-- Lomo del libro -->
+  <rect x="0" y="0" width="12" height="280" fill="rgba(0,0,0,0.30)" rx="3"/>
+
+  <!-- Franja superior de color -->
+  <rect x="12" y="0" width="188" height="38" fill="rgba(0,0,0,0.22)"/>
+
+  <!-- Strip de color (licencia) -->
+  <rect x="12" y="0" width="5" height="38" fill="#F48FB1" opacity="0.85"/>
+
+  <!-- Nombre licencia -->
+  <text x="106" y="24" text-anchor="middle" fill="rgba(255,255,255,0.95)"
+        font-family="Arial,sans-serif" font-size="10" font-weight="bold" letter-spacing="2">SICOBEN</text>
+
+  <!-- Círculos decorativos -->
+  <circle cx="170" cy="78" r="38" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="35"  cy="215" r="30" fill="rgba(0,0,0,0.10)"/>
+  <circle cx="175" cy="230" r="18" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Línea acento izquierda -->
+  <rect x="17" y="110" width="3" height="60" fill="#F48FB1" opacity="0.6" rx="2"/>
+
+  <!-- Nombre de colección -->
+  <text x="105" y="138" text-anchor="middle" fill="white"
+       font-family="Arial,sans-serif" font-size="13"
+       font-weight="bold">PEGA Y COLOREA</text>
+
+  <!-- Franja inferior -->
+  <rect x="12" y="242" width="188" height="38" fill="rgba(0,0,0,0.25)"/>
+
+  <!-- Categoría -->
+  <text x="106" y="257" text-anchor="middle" fill="rgba(255,255,255,0.65)"
+        font-family="Arial,sans-serif" font-size="8" letter-spacing="1">ACTIVIDADES + STICKERS</text>
+
+  <!-- SKU -->
+  <text x="106" y="272" text-anchor="middle" fill="rgba(255,255,255,0.35)"
+        font-family="Arial,sans-serif" font-size="7">BR-S-CS-0271</text>
+
+  <!-- Precio -->
+  <rect x="136" y="5" width="58" height="20" rx="10" fill="rgba(255,255,255,0.18)"/>
+  <text x="165" y="19" text-anchor="middle" fill="white"
+        font-family="Arial,sans-serif" font-size="10" font-weight="bold">$1.60</text>
+</svg>

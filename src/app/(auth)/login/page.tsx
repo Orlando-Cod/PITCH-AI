@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import LogoSicoben from "@/components/ui/LogoSicoben";
+import FooterLegal from "@/components/ui/FooterLegal";
 
-// Credenciales mock para Fase 1 (sin Supabase aún)
-const MOCK_USERS = [
-  { email: "admin@sicoben.com", password: "sicoben2026", nombre: "Administrador" },
-  { email: "ventas@sicoben.com", password: "sicoben2026", nombre: "Ejecutivo de Ventas" },
+const LICENCIA_LOGOS = [
+  { src: "/licencias/disney.png",           alt: "Disney" },
+  { src: "/licencias/mattel.png",           alt: "Mattel" },
+  { src: "/licencias/hasbro.png",           alt: "Hasbro" },
+  { src: "/licencias/universal.png",        alt: "Universal" },
+  { src: "/licencias/paramount.png",        alt: "Paramount" },
+  { src: "/licencias/bluey.png",            alt: "Bluey" },
+  { src: "/licencias/sicoben-original.png", alt: "Sicoben" },
 ];
 
 export default function LoginPage() {
@@ -16,75 +23,77 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    const user = MOCK_USERS.find(
-      (u) => u.email === email.trim().toLowerCase() && u.password === password
-    );
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
+    });
 
-    setTimeout(() => {
-      if (user) {
-        router.push("/dashboard");
-      } else {
-        setError("Correo o contraseña incorrectos.");
-        setLoading(false);
-      }
-    }, 600);
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({ error: "Error desconocido" }));
+      setError(body.error ?? "Correo o contraseña incorrectos.");
+      setLoading(false);
+      return;
+    }
+
+    window.location.href = "/dashboard";
   }
 
   return (
     <div className="min-h-screen bg-slate-950 flex">
       {/* ── Panel izquierdo — branding ── */}
       <div className="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-12 overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "linear-gradient(90deg, #D4518C, #7C3FA0, #6DB4E8, #4EA8AA, #F0A82A, #CC5C42, #8CC452)" }} />
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-orange-500/15 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full blur-3xl" style={{ background: "rgba(109,180,232,0.18)" }} />
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: "rgba(240,168,42,0.14)" }} />
+          <div className="absolute top-1/2 left-1/4 w-72 h-72 rounded-full blur-3xl" style={{ background: "rgba(212,81,140,0.12)" }} />
+          <div className="absolute bottom-1/4 left-1/2 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(140,196,82,0.10)" }} />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-800/60 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center font-bold text-white">
-            P
-          </div>
-          <span className="font-bold text-white text-lg tracking-tight">
-            PITCH <span className="text-orange-400">AI</span>
+        <div className="relative flex flex-col gap-1">
+          <LogoSicoben size="lg" />
+          <span className="text-slate-500 text-sm tracking-widest uppercase font-medium pl-1">
+            Ediciones
           </span>
-          <span className="text-slate-500 text-sm">· Sicoben Ediciones</span>
         </div>
 
         <div className="relative">
-          <p className="text-slate-400 text-sm uppercase tracking-widest mb-4 font-medium">
+          <p className="text-sm uppercase tracking-widest mb-4 font-semibold" style={{ color: "#F0A82A" }}>
             Herramienta de ventas
           </p>
           <h2 className="text-4xl font-bold text-white leading-snug mb-6">
             Genera propuestas
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">
-              en minutos
+              de display
             </span>
           </h2>
-          <p className="text-slate-400 leading-relaxed max-w-sm">
-            Configura el display, elige la colección y precio objetivo — el
-            sistema selecciona los productos disponibles y construye la
-            presentación lista para compartir con tu cliente.
+          <p className="text-slate-300 leading-relaxed max-w-sm">
+            Elige el exhibidor, selecciona los productos y ajusta precios —
+            la presentación queda lista para enviarse al cliente.
           </p>
         </div>
 
         <div className="relative grid grid-cols-3 gap-3">
           {[
-            { icon: "📝", label: "PowerPoint editable" },
-            { icon: "📄", label: "PDF para enviar" },
-            { icon: "🔗", label: "Link HTML" },
+            { icon: "📝", label: "PowerPoint editable", accent: "#F0A82A" },
+            { icon: "📄", label: "PDF para correo o WhatsApp", accent: "#6DB4E8" },
+            { icon: "🔗", label: "Link compartible", accent: "#8CC452" },
           ].map((item) => (
             <div
               key={item.label}
-              className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3 text-center"
+              className="bg-slate-800/60 rounded-xl p-3 text-center border border-slate-700/40"
+              style={{ borderTopColor: item.accent, borderTopWidth: 2 }}
             >
               <div className="text-xl mb-1">{item.icon}</div>
-              <div className="text-slate-400 text-xs">{item.label}</div>
+              <div className="text-slate-300 text-xs font-medium">{item.label}</div>
             </div>
           ))}
         </div>
@@ -99,13 +108,25 @@ export default function LoginPage() {
 
         <div className="relative w-full max-w-sm">
           <div className="lg:hidden text-center mb-8">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center font-bold text-xl mx-auto mb-3">
-              P
-            </div>
-            <h1 className="text-xl font-bold text-white">
-              PITCH <span className="text-orange-400">AI</span>
-            </h1>
-            <p className="text-slate-500 text-sm mt-1">Sicoben Ediciones</p>
+            <LogoSicoben size="md" className="block mb-1" />
+            <p className="text-slate-500 text-xs tracking-widest uppercase mt-1">Ediciones</p>
+          </div>
+
+          <div className="flex items-center justify-center gap-3 mb-5 flex-wrap">
+            {LICENCIA_LOGOS.map((logo) => (
+              <div
+                key={logo.alt}
+                className="w-14 h-14 flex items-center justify-center rounded-xl bg-white border border-white/20 p-2"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={40}
+                  height={40}
+                  className="object-contain w-full h-full"
+                />
+              </div>
+            ))}
           </div>
 
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -161,20 +182,7 @@ export default function LoginPage() {
             </form>
           </div>
 
-          {/* Credenciales de prueba visibles en Fase 1 */}
-          <div className="mt-4 bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-            <p className="text-slate-500 text-xs font-medium mb-2 uppercase tracking-wider">
-              Acceso de prueba (Fase 1)
-            </p>
-            <div className="space-y-1 text-xs text-slate-400 font-mono">
-              <p>ventas@sicoben.com · sicoben2026</p>
-              <p>admin@sicoben.com · sicoben2026</p>
-            </div>
-          </div>
-
-          <p className="text-center text-slate-600 text-xs mt-4">
-            Uso interno exclusivo — Sicoben Ediciones © 2026
-          </p>
+          <FooterLegal />
         </div>
       </div>
     </div>

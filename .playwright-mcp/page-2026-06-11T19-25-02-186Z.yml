@@ -1,0 +1,316 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: sicoben
+        - generic [ref=e7]: Ediciones
+      - navigation [ref=e8]:
+        - link "⊞ Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e10]: ⊞
+          - text: Dashboard
+        - link "＋ Nueva Propuesta" [ref=e11] [cursor=pointer]:
+          - /url: /nueva-propuesta
+          - generic [ref=e12]: ＋
+          - text: Nueva Propuesta
+        - link "◷ Historial" [ref=e13] [cursor=pointer]:
+          - /url: /historial
+          - generic [ref=e14]: ◷
+          - text: Historial
+      - link "↩ Cerrar Sesión" [ref=e16] [cursor=pointer]:
+        - /url: /login
+        - generic [ref=e17]: ↩
+        - text: Cerrar Sesión
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: © 2026 Sicoben Ediciones
+        - navigation [ref=e21]:
+          - link "Privacidad" [ref=e22] [cursor=pointer]:
+            - /url: /privacidad
+          - link "Términos" [ref=e23] [cursor=pointer]:
+            - /url: /terminos
+          - link "Aviso" [ref=e24] [cursor=pointer]:
+            - /url: /aviso-legal
+          - link "Cookies" [ref=e25] [cursor=pointer]:
+            - /url: /cookies
+    - main [ref=e26]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Nueva Propuesta" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Selecciona exhibidor, productos y datos del cliente.
+        - generic [ref=e32]:
+          - button "1 Exhibidor" [ref=e34]:
+            - generic [ref=e35]: "1"
+            - generic [ref=e36]: Exhibidor
+          - button "2 Licencias" [ref=e39]:
+            - generic [ref=e40]: "2"
+            - generic [ref=e41]: Licencias
+          - button "3 Productos" [ref=e44]:
+            - generic [ref=e45]: "3"
+            - generic [ref=e46]: Productos
+          - button "4 Parámetros" [ref=e49]:
+            - generic [ref=e50]: "4"
+            - generic [ref=e51]: Parámetros
+          - button "5 Generar" [ref=e54]:
+            - generic [ref=e55]: "5"
+            - generic [ref=e56]: Generar
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - heading "Selecciona el exhibidor" [level=2] [ref=e59]
+            - paragraph [ref=e60]: Elige el tipo de mueble que irá en el punto de venta del cliente.
+          - generic [ref=e62]:
+            - 'button "9 espacios Metálico 9 Espacios Exhibidor Vertical de Piso Metálico 9 Espacios 170 × 44.5 × 28.5 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 72u 48u 48u 24u 24u · Capacidad total: 432 unidades (24–48 por espacio) · Ideal para pequeños espacios en punto de venta · Robusto, compacto y altamente llamativo" [ref=e63]':
+              - generic [ref=e64]: 9 espacios
+              - img "Metálico 9 Espacios" [ref=e66]
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - paragraph [ref=e70]: Exhibidor Vertical de Piso
+                  - heading "Metálico 9 Espacios" [level=3] [ref=e71]
+                  - paragraph [ref=e72]: 170 × 44.5 × 28.5 cm
+                - generic [ref=e73]:
+                  - paragraph [ref=e74]: Unidades por espacio según formato
+                  - generic [ref=e75]:
+                    - generic [ref=e76]: 16 pág
+                    - generic [ref=e77]: 24 pág
+                    - generic [ref=e78]: 48 pág
+                    - generic [ref=e79]: 80 pág
+                    - generic [ref=e80]: 96 pág
+                    - generic [ref=e81]: 72u
+                    - generic [ref=e82]: 48u
+                    - generic [ref=e83]: 48u
+                    - generic [ref=e84]: 24u
+                    - generic [ref=e85]: 24u
+                - list [ref=e86]:
+                  - listitem [ref=e87]:
+                    - generic [ref=e88]: ·
+                    - text: "Capacidad total: 432 unidades (24–48 por espacio)"
+                  - listitem [ref=e89]:
+                    - generic [ref=e90]: ·
+                    - text: Ideal para pequeños espacios en punto de venta
+                  - listitem [ref=e91]:
+                    - generic [ref=e92]: ·
+                    - text: Robusto, compacto y altamente llamativo
+            - button "16 espacios Metálico 16 Espacios Display Tubular Giratorio 4 Caras Metálico 16 Espacios 137 × 54 × 21 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 72u 48u 48u 24u 24u · 4 caras × 4 pisos = 16 espacios totales · Ruedas para reposicionarlo con libertad · Cabezal de marca SICOBEN visible 4 caras · 4 espacios por cara" [ref=e93]:
+              - generic [ref=e94]: 16 espacios
+              - img "Metálico 16 Espacios" [ref=e96]
+              - generic [ref=e98]:
+                - generic [ref=e99]:
+                  - paragraph [ref=e100]: Display Tubular Giratorio 4 Caras
+                  - heading "Metálico 16 Espacios" [level=3] [ref=e101]
+                  - paragraph [ref=e102]: 137 × 54 × 21 cm
+                - generic [ref=e103]:
+                  - paragraph [ref=e104]: Unidades por espacio según formato
+                  - generic [ref=e105]:
+                    - generic [ref=e106]: 16 pág
+                    - generic [ref=e107]: 24 pág
+                    - generic [ref=e108]: 48 pág
+                    - generic [ref=e109]: 80 pág
+                    - generic [ref=e110]: 96 pág
+                    - generic [ref=e111]: 72u
+                    - generic [ref=e112]: 48u
+                    - generic [ref=e113]: 48u
+                    - generic [ref=e114]: 24u
+                    - generic [ref=e115]: 24u
+                - list [ref=e116]:
+                  - listitem [ref=e117]:
+                    - generic [ref=e118]: ·
+                    - text: 4 caras × 4 pisos = 16 espacios totales
+                  - listitem [ref=e119]:
+                    - generic [ref=e120]: ·
+                    - text: Ruedas para reposicionarlo con libertad
+                  - listitem [ref=e121]:
+                    - generic [ref=e122]: ·
+                    - text: Cabezal de marca SICOBEN visible
+                - generic [ref=e123]: 4 caras · 4 espacios por cara
+            - 'button "8 espacios Cartón 8 Espacios Display Exhibidor de Piso — Modelo 2025 Cartón 8 Espacios 150 × 48 × 30 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 60u 48u 36u 24u 24u · 8 espacios — 2 caras × 4 pisos · Profundidad por espacio: 18.5 cm · Capacidad máxima: 480 unidades (libros 16 pág.) 2 caras · 4 espacios por cara" [ref=e124]':
+              - generic [ref=e125]: 8 espacios
+              - img "Cartón 8 Espacios" [ref=e127]
+              - generic [ref=e129]:
+                - generic [ref=e130]:
+                  - paragraph [ref=e131]: Display Exhibidor de Piso — Modelo 2025
+                  - heading "Cartón 8 Espacios" [level=3] [ref=e132]
+                  - paragraph [ref=e133]: 150 × 48 × 30 cm
+                - generic [ref=e134]:
+                  - paragraph [ref=e135]: Unidades por espacio según formato
+                  - generic [ref=e136]:
+                    - generic [ref=e137]: 16 pág
+                    - generic [ref=e138]: 24 pág
+                    - generic [ref=e139]: 48 pág
+                    - generic [ref=e140]: 80 pág
+                    - generic [ref=e141]: 96 pág
+                    - generic [ref=e142]: 60u
+                    - generic [ref=e143]: 48u
+                    - generic [ref=e144]: 36u
+                    - generic [ref=e145]: 24u
+                    - generic [ref=e146]: 24u
+                - list [ref=e147]:
+                  - listitem [ref=e148]:
+                    - generic [ref=e149]: ·
+                    - text: 8 espacios — 2 caras × 4 pisos
+                  - listitem [ref=e150]:
+                    - generic [ref=e151]: ·
+                    - text: "Profundidad por espacio: 18.5 cm"
+                  - listitem [ref=e152]:
+                    - generic [ref=e153]: ·
+                    - text: "Capacidad máxima: 480 unidades (libros 16 pág.)"
+                - generic [ref=e154]: 2 caras · 4 espacios por cara
+            - 'button "12 espacios Tubular Colgante Giratorio Display de Ganchos — Giratorio 4 Caras Tubular Colgante Giratorio 120 × 30 × 30 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 8u 6u 4u 3u 3u · 12 ganchos — 4 caras × 3 niveles · Giratorio — acceso 360° al producto · Compacto: ocupa solo 30 × 30 cm de piso 4 caras · 3 espacios por cara" [ref=e155]':
+              - generic [ref=e156]: 12 espacios
+              - img "Tubular Colgante Giratorio" [ref=e158]
+              - generic [ref=e160]:
+                - generic [ref=e161]:
+                  - paragraph [ref=e162]: Display de Ganchos — Giratorio 4 Caras
+                  - heading "Tubular Colgante Giratorio" [level=3] [ref=e163]
+                  - paragraph [ref=e164]: 120 × 30 × 30 cm
+                - generic [ref=e165]:
+                  - paragraph [ref=e166]: Unidades por espacio según formato
+                  - generic [ref=e167]:
+                    - generic [ref=e168]: 16 pág
+                    - generic [ref=e169]: 24 pág
+                    - generic [ref=e170]: 48 pág
+                    - generic [ref=e171]: 80 pág
+                    - generic [ref=e172]: 96 pág
+                    - generic [ref=e173]: 8u
+                    - generic [ref=e174]: 6u
+                    - generic [ref=e175]: 4u
+                    - generic [ref=e176]: 3u
+                    - generic [ref=e177]: 3u
+                - list [ref=e178]:
+                  - listitem [ref=e179]:
+                    - generic [ref=e180]: ·
+                    - text: 12 ganchos — 4 caras × 3 niveles
+                  - listitem [ref=e181]:
+                    - generic [ref=e182]: ·
+                    - text: Giratorio — acceso 360° al producto
+                  - listitem [ref=e183]:
+                    - generic [ref=e184]: ·
+                    - text: "Compacto: ocupa solo 30 × 30 cm de piso"
+                - generic [ref=e185]: 4 caras · 3 espacios por cara
+            - button "4 espacios Colgante Cartón 4 Espacios Display de Pared — Cartón Impreso Colgante Cartón 4 Espacios 60 × 60 × 12 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 36u 24u 18u 12u 10u · 4 compartimentos — 2 filas × 2 columnas · Se cuelga directo en estantería o pared · Impreso con identidad visual Sicoben" [ref=e186]:
+              - generic [ref=e187]: 4 espacios
+              - img "Colgante Cartón 4 Espacios" [ref=e189]
+              - generic [ref=e191]:
+                - generic [ref=e192]:
+                  - paragraph [ref=e193]: Display de Pared — Cartón Impreso
+                  - heading "Colgante Cartón 4 Espacios" [level=3] [ref=e194]
+                  - paragraph [ref=e195]: 60 × 60 × 12 cm
+                - generic [ref=e196]:
+                  - paragraph [ref=e197]: Unidades por espacio según formato
+                  - generic [ref=e198]:
+                    - generic [ref=e199]: 16 pág
+                    - generic [ref=e200]: 24 pág
+                    - generic [ref=e201]: 48 pág
+                    - generic [ref=e202]: 80 pág
+                    - generic [ref=e203]: 96 pág
+                    - generic [ref=e204]: 36u
+                    - generic [ref=e205]: 24u
+                    - generic [ref=e206]: 18u
+                    - generic [ref=e207]: 12u
+                    - generic [ref=e208]: 10u
+                - list [ref=e209]:
+                  - listitem [ref=e210]:
+                    - generic [ref=e211]: ·
+                    - text: 4 compartimentos — 2 filas × 2 columnas
+                  - listitem [ref=e212]:
+                    - generic [ref=e213]: ·
+                    - text: Se cuelga directo en estantería o pared
+                  - listitem [ref=e214]:
+                    - generic [ref=e215]: ·
+                    - text: Impreso con identidad visual Sicoben
+            - 'button "12 espacios Pallet Cartón 12 Espacios Exhibidor de Piso — Alto Volumen Pallet Cartón 12 Espacios 80 × 80 × 70 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 72u 48u 36u 24u 20u · 12 espacios — 3 filas × 4 columnas · Branding completo en frente y lateral · Capacidad total estimada: 500+ unidades" [ref=e216]':
+              - generic [ref=e217]: 12 espacios
+              - img "Pallet Cartón 12 Espacios" [ref=e219]
+              - generic [ref=e221]:
+                - generic [ref=e222]:
+                  - paragraph [ref=e223]: Exhibidor de Piso — Alto Volumen
+                  - heading "Pallet Cartón 12 Espacios" [level=3] [ref=e224]
+                  - paragraph [ref=e225]: 80 × 80 × 70 cm
+                - generic [ref=e226]:
+                  - paragraph [ref=e227]: Unidades por espacio según formato
+                  - generic [ref=e228]:
+                    - generic [ref=e229]: 16 pág
+                    - generic [ref=e230]: 24 pág
+                    - generic [ref=e231]: 48 pág
+                    - generic [ref=e232]: 80 pág
+                    - generic [ref=e233]: 96 pág
+                    - generic [ref=e234]: 72u
+                    - generic [ref=e235]: 48u
+                    - generic [ref=e236]: 36u
+                    - generic [ref=e237]: 24u
+                    - generic [ref=e238]: 20u
+                - list [ref=e239]:
+                  - listitem [ref=e240]:
+                    - generic [ref=e241]: ·
+                    - text: 12 espacios — 3 filas × 4 columnas
+                  - listitem [ref=e242]:
+                    - generic [ref=e243]: ·
+                    - text: Branding completo en frente y lateral
+                  - listitem [ref=e244]:
+                    - generic [ref=e245]: ·
+                    - text: "Capacidad total estimada: 500+ unidades"
+            - button "1 espacios PDQS Cartón Display de Mostrador — Cartón Impreso PDQS Cartón 30 × 20 × 25 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 20u 16u 12u 8u 6u · Unidad individual — 1 espacio de producto · Coloca en mostrador, checkout o cachete · Impreso con gráfica de colección" [ref=e246]:
+              - generic [ref=e247]: 1 espacios
+              - img "PDQS Cartón" [ref=e249]
+              - generic [ref=e251]:
+                - generic [ref=e252]:
+                  - paragraph [ref=e253]: Display de Mostrador — Cartón Impreso
+                  - heading "PDQS Cartón" [level=3] [ref=e254]
+                  - paragraph [ref=e255]: 30 × 20 × 25 cm
+                - generic [ref=e256]:
+                  - paragraph [ref=e257]: Unidades por espacio según formato
+                  - generic [ref=e258]:
+                    - generic [ref=e259]: 16 pág
+                    - generic [ref=e260]: 24 pág
+                    - generic [ref=e261]: 48 pág
+                    - generic [ref=e262]: 80 pág
+                    - generic [ref=e263]: 96 pág
+                    - generic [ref=e264]: 20u
+                    - generic [ref=e265]: 16u
+                    - generic [ref=e266]: 12u
+                    - generic [ref=e267]: 8u
+                    - generic [ref=e268]: 6u
+                - list [ref=e269]:
+                  - listitem [ref=e270]:
+                    - generic [ref=e271]: ·
+                    - text: Unidad individual — 1 espacio de producto
+                  - listitem [ref=e272]:
+                    - generic [ref=e273]: ·
+                    - text: Coloca en mostrador, checkout o cachete
+                  - listitem [ref=e274]:
+                    - generic [ref=e275]: ·
+                    - text: Impreso con gráfica de colección
+            - button "10 espacios Ristra Colgante Exhibidor Colgante en Tira Ristra Colgante 90 × 5 × 3 cm Unidades por espacio según formato 16 pág 24 pág 48 pág 80 pág 96 pág 3u 2u 1u 1u 1u · 10 clips a lo largo de la tira · Cuelga desde cualquier borde de estantería · Transparente — no compite con el producto" [ref=e276]:
+              - generic [ref=e277]: 10 espacios
+              - img "Ristra Colgante" [ref=e279]
+              - generic [ref=e281]:
+                - generic [ref=e282]:
+                  - paragraph [ref=e283]: Exhibidor Colgante en Tira
+                  - heading "Ristra Colgante" [level=3] [ref=e284]
+                  - paragraph [ref=e285]: 90 × 5 × 3 cm
+                - generic [ref=e286]:
+                  - paragraph [ref=e287]: Unidades por espacio según formato
+                  - generic [ref=e288]:
+                    - generic [ref=e289]: 16 pág
+                    - generic [ref=e290]: 24 pág
+                    - generic [ref=e291]: 48 pág
+                    - generic [ref=e292]: 80 pág
+                    - generic [ref=e293]: 96 pág
+                    - generic [ref=e294]: 3u
+                    - generic [ref=e295]: 2u
+                    - generic [ref=e296]: 1u
+                    - generic [ref=e297]: 1u
+                    - generic [ref=e298]: 1u
+                - list [ref=e299]:
+                  - listitem [ref=e300]:
+                    - generic [ref=e301]: ·
+                    - text: 10 clips a lo largo de la tira
+                  - listitem [ref=e302]:
+                    - generic [ref=e303]: ·
+                    - text: Cuelga desde cualquier borde de estantería
+                  - listitem [ref=e304]:
+                    - generic [ref=e305]: ·
+                    - text: Transparente — no compite con el producto
+        - generic [ref=e306]:
+          - button "← Atrás" [disabled] [ref=e307]
+          - button "Continuar →" [disabled] [ref=e309]
+  - button "Open Next.js Dev Tools" [ref=e315] [cursor=pointer]:
+    - img [ref=e316]
