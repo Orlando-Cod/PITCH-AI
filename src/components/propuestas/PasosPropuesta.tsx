@@ -193,6 +193,13 @@ export default function PasosPropuesta() {
               exhibidor={exhibidor}
               productos={productos}
               parametros={parametros}
+              onNuevaPropuesta={() => {
+                setExhibidorId("");
+                setLicenciasSeleccionadas([]);
+                setProductosSeleccionados([]);
+                setParametros({});
+                setPaso(1);
+              }}
             />
           </div>
         )}

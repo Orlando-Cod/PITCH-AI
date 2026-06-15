@@ -50,3 +50,8 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# scripts con credenciales hardcodeadas — solo uso local
+scripts/reset-password.mjs
+scripts/crear-usuarios.mjs
+scripts/test-login.mjs

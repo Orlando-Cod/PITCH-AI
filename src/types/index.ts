@@ -61,6 +61,7 @@ export interface Producto {
   tapaDura?: boolean;
   tieneStickers?: boolean;
   licencia: Licencia;
+  portada?: string; // ruta en /public, ej: "/portadas/MM-S-C-2757.svg"
 }
 
 // ── Exhibidor ─────────────────────────────────────────────────────────────────

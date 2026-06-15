@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import LogoSicoben from "@/components/ui/LogoSicoben";
 import FooterLegal from "@/components/ui/FooterLegal";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 const LICENCIA_LOGOS = [
   { src: "/licencias/disney.png",           alt: "Disney" },
@@ -29,20 +28,20 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
 
-    const supabase = createSupabaseBrowserClient();
-    const { error: authError } = await supabase.auth.signInWithPassword({
-      email: email.trim().toLowerCase(),
-      password,
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
     });
 
-    if (authError) {
-      setError("Correo o contraseña incorrectos.");
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({ error: "Error desconocido" }));
+      setError(body.error ?? "Correo o contraseña incorrectos.");
       setLoading(false);
       return;
     }
 
-    router.refresh();
-    router.push("/dashboard");
+    window.location.href = "/dashboard";
   }
 
   return (
