@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import LogoSicoben from "@/components/ui/LogoSicoben";
 import FooterLegal from "@/components/ui/FooterLegal";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 const LICENCIA_LOGOS = [
   { src: "/licencias/disney.png",           alt: "Disney" },
@@ -16,12 +17,6 @@ const LICENCIA_LOGOS = [
   { src: "/licencias/sicoben-original.png", alt: "Sicoben" },
 ];
 
-// Credenciales mock para Fase 1 (sin Supabase aún)
-const MOCK_USERS = [
-  { email: "admin@sicoben.com", password: "sicoben2026", nombre: "Administrador" },
-  { email: "ventas@sicoben.com", password: "sicoben2026", nombre: "Ejecutivo de Ventas" },
-];
-
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -29,30 +24,31 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    const user = MOCK_USERS.find(
-      (u) => u.email === email.trim().toLowerCase() && u.password === password
-    );
+    const supabase = createSupabaseBrowserClient();
+    const { error: authError } = await supabase.auth.signInWithPassword({
+      email: email.trim().toLowerCase(),
+      password,
+    });
 
-    setTimeout(() => {
-      if (user) {
-        router.push("/dashboard");
-      } else {
-        setError("Correo o contraseña incorrectos.");
-        setLoading(false);
-      }
-    }, 600);
+    if (authError) {
+      setError("Correo o contraseña incorrectos.");
+      setLoading(false);
+      return;
+    }
+
+    router.refresh();
+    router.push("/dashboard");
   }
 
   return (
     <div className="min-h-screen bg-slate-950 flex">
       {/* ── Panel izquierdo — branding ── */}
       <div className="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-12 overflow-hidden">
-        {/* Borde superior con gradiente de marca */}
         <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "linear-gradient(90deg, #D4518C, #7C3FA0, #6DB4E8, #4EA8AA, #F0A82A, #CC5C42, #8CC452)" }} />
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full blur-3xl" style={{ background: "rgba(109,180,232,0.18)" }} />
@@ -117,7 +113,6 @@ export default function LoginPage() {
             <p className="text-slate-500 text-xs tracking-widest uppercase mt-1">Ediciones</p>
           </div>
 
-          {/* Logos de licencias */}
           <div className="flex items-center justify-center gap-3 mb-5 flex-wrap">
             {LICENCIA_LOGOS.map((logo) => (
               <div
@@ -186,17 +181,6 @@ export default function LoginPage() {
                 {loading ? "Entrando..." : "Iniciar sesión"}
               </button>
             </form>
-          </div>
-
-          {/* Credenciales de prueba visibles en Fase 1 */}
-          <div className="mt-4 bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-            <p className="text-slate-500 text-xs font-medium mb-2 uppercase tracking-wider">
-              Credenciales de prueba
-            </p>
-            <div className="space-y-1 text-xs text-slate-400 font-mono">
-              <p>ventas@sicoben.com · sicoben2026</p>
-              <p>admin@sicoben.com · sicoben2026</p>
-            </div>
           </div>
 
           <FooterLegal />

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LogoSicoben from "@/components/ui/LogoSicoben";
 import FooterLegal from "@/components/ui/FooterLegal";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: "⊞" },
@@ -17,12 +18,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function handleLogout() {
+    const supabase = createSupabaseBrowserClient();
+    await supabase.auth.signOut();
+    router.push("/login");
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 flex">
       {/* Sidebar */}
       <aside className="w-60 bg-slate-900 border-r border-slate-800 flex flex-col shrink-0">
-        {/* Barra de color de marca en la parte superior */}
         <div
           className="h-1 shrink-0"
           style={{ background: "linear-gradient(90deg, #D4518C, #7C3FA0, #6DB4E8, #4EA8AA, #F0A82A, #CC5C42, #8CC452)" }}
@@ -61,12 +68,13 @@ export default function DashboardLayout({
         </nav>
 
         <div className="p-3 border-t border-slate-800">
-          <Link
-            href="/login"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:text-slate-300 transition-colors text-sm"
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:text-slate-300 transition-colors text-sm"
           >
             <span>↩</span> Cerrar Sesión
-          </Link>
+          </button>
         </div>
 
         <FooterLegal />

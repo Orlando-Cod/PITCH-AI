@@ -41,6 +41,24 @@ export default function VistaPrevia({ exhibidor, productos, parametros }: Props)
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
       setDescargado(true);
+
+      // Guardar en historial (fire-and-forget)
+      const licencias = [...new Set(productos.map((p) => p.licencia))];
+      fetch("/api/guardar-propuesta", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cliente: parametros.cliente ?? "",
+          pais: parametros.pais ?? "",
+          tipoCliente: parametros.tipoCliente ?? "",
+          exhibidorId: exhibidor.id,
+          exhibidorNombre: exhibidor.nombre,
+          numProductos: productos.length,
+          numCaras: caras,
+          descuento: parametros.descuento ?? 0,
+          licencias,
+        }),
+      }).catch(() => {});
     } catch (e) {
       setError(e instanceof Error ? e.message : "Error inesperado");
     } finally {
@@ -112,7 +130,7 @@ export default function VistaPrevia({ exhibidor, productos, parametros }: Props)
       {descargado && (
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
           <p className="text-green-300 text-sm font-medium">
-            Presentación descargada correctamente. Revisa tu carpeta de descargas.
+            Presentación descargada y guardada en el historial.
           </p>
         </div>
       )}
