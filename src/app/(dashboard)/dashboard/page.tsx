@@ -85,7 +85,7 @@ export default async function DashboardPage() {
         <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold text-gray-900">Propuestas recientes</h2>
-            <Link href="/historial" className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
+            <Link href="/historial" className="text-xs text-[#FA4616] hover:text-[#D93A0D] font-medium transition-colors">
               Ver todas →
             </Link>
           </div>

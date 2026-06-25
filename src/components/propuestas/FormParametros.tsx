@@ -44,8 +44,8 @@ interface Props {
 }
 
 const input =
-  "w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#00A9E0] focus:ring-1 focus:ring-[#00A9E0]/20 transition-colors";
-const label = "block text-xs font-medium text-gray-600 mb-1.5";
+  "w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#1A1A2E] placeholder-gray-400 focus:outline-none focus:border-[#FA4616] focus:ring-2 focus:ring-[#FA4616]/10 transition-colors";
+const label = "block text-xs font-semibold text-[#1A1A2E] mb-1.5";
 
 export default function FormParametros({ exhibidorId, valor, onChange }: Props) {
   const exhibidor = EXHIBIDORES.find((e) => e.id === exhibidorId);
@@ -171,10 +171,10 @@ export default function FormParametros({ exhibidorId, valor, onChange }: Props) 
                 }}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
                   activa
-                    ? "text-white border-[#00A9E0]"
-                    : "bg-gray-50 border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
+                    ? "text-white border-[#FA4616]"
+                    : "bg-gray-50 border-gray-200 text-gray-500 hover:border-[#FA4616]/40 hover:text-[#FA4616]"
                 }`}
-                style={activa ? { background: "#00A9E0" } : undefined}
+                style={activa ? { background: "#FA4616" } : undefined}
               >
                 {lic}
               </button>
