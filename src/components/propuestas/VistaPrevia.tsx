@@ -23,7 +23,6 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
   const espaciosPorCara = Math.floor(exhibidor.espacios / exhibidor.caras);
   const totalSlides = 3 + caras + 1;
 
-  // ── Lógica de descarga (reutilizable) ────────────────────────────────────
   async function descargarPPT(): Promise<void> {
     setGenerando(true);
     setError("");
@@ -46,7 +45,6 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
       URL.revokeObjectURL(url);
       setDescargado(true);
 
-      // Guardar en historial (fire-and-forget)
       const licencias = [...new Set(productos.map((p) => p.licencia))];
       fetch("/api/guardar-propuesta", {
         method: "POST",
@@ -76,7 +74,6 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
     await descargarPPT().catch(() => {});
   }
 
-  // ── Guardar y empezar nueva ───────────────────────────────────────────────
   async function handleGuardarYNueva() {
     setMostrarConfirmacion(false);
     if (!descargado) {
@@ -97,7 +94,6 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
     onNuevaPropuesta();
   }
 
-  // ── Estructura de slides para la vista previa ─────────────────────────────
   const slideStructure = [
     { n: 1, icon: "🏢", label: "Portada", desc: "Logo · Cliente · Fecha" },
     { n: 2, icon: "🗄️", label: "Exhibidor", desc: exhibidor.nombre },
@@ -121,30 +117,30 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
             { icon: "📚", titulo: "Productos", valor: `${productos.length} títulos`, sub: `~${productos.length * espaciosPorCara} unidades totales` },
             { icon: "🏬", titulo: "Cliente", valor: parametros.cliente ?? "—", sub: `${parametros.pais ?? "—"} · ${parametros.tipoCliente ?? "—"}` },
           ].map((c) => (
-            <div key={c.titulo} className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div key={c.titulo} className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
               <div className="text-2xl mb-2">{c.icon}</div>
-              <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">{c.titulo}</p>
-              <p className="text-white font-semibold mt-1 truncate">{c.valor}</p>
-              <p className="text-slate-500 text-xs mt-0.5">{c.sub}</p>
+              <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider">{c.titulo}</p>
+              <p className="text-gray-900 font-semibold mt-1 truncate">{c.valor}</p>
+              <p className="text-gray-400 text-xs mt-0.5">{c.sub}</p>
             </div>
           ))}
         </div>
 
         {/* Estructura de slides */}
         <div>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
             Estructura — {totalSlides} slides
           </p>
           <div className="flex gap-2 overflow-x-auto pb-2">
             {slideStructure.map((s) => (
               <div
                 key={s.n}
-                className="flex-shrink-0 w-[100px] bg-slate-900 border border-slate-800 rounded-xl p-3 text-center"
+                className="flex-shrink-0 w-[100px] bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm"
               >
-                <div className="text-xs text-slate-600 font-mono mb-1">#{s.n}</div>
+                <div className="text-xs text-gray-400 font-mono mb-1">#{s.n}</div>
                 <div className="text-xl mb-1">{s.icon}</div>
-                <p className="text-white text-xs font-semibold leading-tight">{s.label}</p>
-                <p className="text-slate-500 text-xs mt-0.5 leading-tight">{s.desc}</p>
+                <p className="text-gray-800 text-xs font-semibold leading-tight">{s.label}</p>
+                <p className="text-gray-400 text-xs mt-0.5 leading-tight">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -152,8 +148,8 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
 
         {/* Descuento info */}
         {(parametros.descuento ?? 0) > 0 && (
-          <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4">
-            <p className="text-orange-300 text-sm font-medium">
+          <div className="rounded-xl p-4 border" style={{ background: "rgba(250,70,22,0.05)", borderColor: "rgba(250,70,22,0.2)" }}>
+            <p className="text-sm font-medium" style={{ color: "#C53510" }}>
               Descuento {parametros.descuento}% aplicado — la lista de precios mostrará precio normal y precio con descuento.
             </p>
           </div>
@@ -161,8 +157,8 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
 
         {/* Éxito */}
         {descargado && (
-          <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
-            <p className="text-green-300 text-sm font-medium">
+          <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+            <p className="text-green-700 text-sm font-medium">
               Presentación descargada y guardada en el historial.
             </p>
           </div>
@@ -170,8 +166,8 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
 
         {/* Error */}
         {error && (
-          <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
-            <p className="text-red-300 text-sm">{error}</p>
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p className="text-red-600 text-sm">{error}</p>
           </div>
         )}
 
@@ -182,7 +178,12 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
             type="button"
             onClick={handleGenerar}
             disabled={generando || guardandoParaNueva}
-            className="bg-orange-500 hover:bg-orange-400 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-bold px-12 py-4 rounded-2xl text-base transition-colors shadow-lg shadow-orange-500/20 flex items-center gap-3"
+            className="font-bold px-12 py-4 rounded-2xl text-base transition-colors text-white flex items-center gap-3 disabled:cursor-not-allowed"
+            style={
+              generando || guardandoParaNueva
+                ? { background: "#E5E7EB", color: "#9CA3AF", boxShadow: "none" }
+                : { background: "#FA4616", boxShadow: "0 4px 16px rgba(250,70,22,0.25)" }
+            }
           >
             {generando && !guardandoParaNueva ? (
               <><span className="inline-block animate-spin">⏳</span> Generando presentación...</>
@@ -198,9 +199,9 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
             disabled={generando || guardandoParaNueva}
             className="flex items-center gap-2 px-8 py-2.5 rounded-xl text-sm font-semibold border transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             style={{
-              color: "#6DB4E8",
-              borderColor: "rgba(109,180,232,0.3)",
-              background: "rgba(109,180,232,0.06)",
+              color: "#007BAA",
+              borderColor: "rgba(0,169,224,0.3)",
+              background: "rgba(0,169,224,0.05)",
             }}
           >
             {guardandoParaNueva ? (
@@ -216,14 +217,14 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
       {mostrarConfirmacion && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
-          style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(4px)" }}
+          style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(4px)" }}
         >
-          <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full shadow-2xl">
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 max-w-md w-full shadow-2xl">
             <div className="text-3xl mb-3 text-center">📋</div>
-            <h3 className="text-lg font-bold text-white mb-2 text-center">
+            <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">
               ¿Empezar una presentación nueva?
             </h3>
-            <p className="text-slate-400 text-sm text-center mb-6 leading-relaxed">
+            <p className="text-gray-500 text-sm text-center mb-6 leading-relaxed">
               ¿Quieres guardar la presentación actual antes de empezar una nueva?
             </p>
 
@@ -234,8 +235,8 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
                 onClick={handleGuardarYNueva}
                 className="w-full py-3 px-5 rounded-xl text-sm font-semibold text-white transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #F0A82A, #CC5C42)",
-                  boxShadow: "0 4px 14px rgba(240,168,42,0.25)",
+                  background: "linear-gradient(135deg, #FA4616, #E31C79)",
+                  boxShadow: "0 4px 14px rgba(250,70,22,0.2)",
                 }}
               >
                 ⬇️ Guardar y empezar nueva
@@ -245,7 +246,7 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
               <button
                 type="button"
                 onClick={handleNuevaSinGuardar}
-                className="w-full py-3 px-5 rounded-xl text-sm font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors"
+                className="w-full py-3 px-5 rounded-xl text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-colors"
               >
                 Empezar nueva sin guardar
               </button>
@@ -254,7 +255,7 @@ export default function VistaPrevia({ exhibidor, productos, parametros, onNuevaP
               <button
                 type="button"
                 onClick={() => setMostrarConfirmacion(false)}
-                className="w-full py-2.5 px-5 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors"
+                className="w-full py-2.5 px-5 rounded-xl text-sm font-medium text-gray-400 hover:text-gray-600 transition-colors"
               >
                 Cancelar
               </button>

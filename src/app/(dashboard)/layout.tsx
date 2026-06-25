@@ -14,9 +14,9 @@ const NAV_ITEMS = [
 ];
 
 const EJECUTIVOS = [
-  { nombre: "Joaquin Samudio",  iniciales: "JS", color: "#6DB4E8" },
-  { nombre: "Omar Martinez",    iniciales: "OM", color: "#F0A82A" },
-  { nombre: "Johnluis Lanz",    iniciales: "JL", color: "#8CC452" },
+  { nombre: "Joaquin Samudio",  iniciales: "JS", color: "#00A9E0" },
+  { nombre: "Omar Martinez",    iniciales: "OM", color: "#FA4616" },
+  { nombre: "Johnluis Lanz",    iniciales: "JL", color: "#84BD00" },
 ];
 
 const CLIENTES: { nombre: string; tipo: "Retailer" | "Distribuidor" }[] = [
@@ -48,17 +48,17 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 flex">
+    <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <aside className="w-60 bg-slate-800 border-r border-slate-700 flex flex-col shrink-0">
+      <aside className="w-60 bg-white border-r border-gray-200 flex flex-col shrink-0">
         <div
           className="h-1 shrink-0"
-          style={{ background: "linear-gradient(90deg, #D4518C, #7C3FA0, #6DB4E8, #4EA8AA, #F0A82A, #CC5C42, #8CC452)" }}
+          style={{ background: "linear-gradient(90deg, #FA4616, #E31C79, #00A9E0, #00A499, #FFA300, #84329B, #84BD00)" }}
         />
 
-        <div className="h-16 flex flex-col items-start justify-center px-5 border-b border-slate-700">
+        <div className="h-16 flex flex-col items-start justify-center px-5 border-b border-gray-100">
           <LogoSicoben size="sm" />
-          <span className="text-slate-600 text-xs tracking-widest uppercase leading-none mt-0.5">
+          <span className="text-gray-400 text-xs tracking-widest uppercase leading-none mt-0.5">
             Ediciones
           </span>
         </div>
@@ -72,16 +72,16 @@ export default function DashboardLayout({
                 href={item.href}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 border-l-2 ${
                   activo
-                    ? "bg-blue-600/15 text-white border-orange-500"
+                    ? "bg-[#FA4616]/8 text-[#FA4616] border-[#FA4616]"
                     : item.highlight
-                    ? "text-orange-400 border-transparent hover:text-orange-300 hover:bg-orange-500/10"
-                    : "text-slate-400 border-transparent hover:text-white hover:bg-slate-800/70"
+                    ? "text-[#FA4616] border-transparent hover:text-[#E03D13] hover:bg-[#FA4616]/5"
+                    : "text-gray-500 border-transparent hover:text-gray-800 hover:bg-gray-100"
                 }`}
               >
-                <span className={`text-base ${activo ? "text-orange-400" : ""}`}>{item.icon}</span>
+                <span className={`text-base ${activo ? "text-[#FA4616]" : ""}`}>{item.icon}</span>
                 {item.label}
                 {item.highlight && !activo && (
-                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-orange-500" />
+                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#FA4616]" />
                 )}
               </Link>
             );
@@ -89,11 +89,11 @@ export default function DashboardLayout({
         </nav>
 
         {/* ── Ejecutivos de Ventas ── */}
-        <div className="border-t border-slate-700">
+        <div className="border-t border-gray-100">
           <button
             type="button"
             onClick={() => setEjecutivosAbierto((v) => !v)}
-            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-slate-500 uppercase tracking-widest hover:text-slate-300 transition-colors"
+            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors"
           >
             <span>Ejecutivos</span>
             <span className={`transition-transform duration-200 ${ejecutivosAbierto ? "rotate-180" : ""}`}>
@@ -103,14 +103,14 @@ export default function DashboardLayout({
           {ejecutivosAbierto && (
             <div className="px-3 pb-3 space-y-1">
               {EJECUTIVOS.map((ej) => (
-                <div key={ej.nombre} className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-slate-700/40 transition-colors">
+                <div key={ej.nombre} className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors">
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                    style={{ background: `${ej.color}22`, color: ej.color, border: `1px solid ${ej.color}44` }}
+                    style={{ background: `${ej.color}18`, color: ej.color, border: `1px solid ${ej.color}35` }}
                   >
                     {ej.iniciales}
                   </div>
-                  <span className="text-slate-300 text-xs truncate">{ej.nombre}</span>
+                  <span className="text-gray-600 text-xs truncate">{ej.nombre}</span>
                 </div>
               ))}
             </div>
@@ -118,11 +118,11 @@ export default function DashboardLayout({
         </div>
 
         {/* ── Clientes ── */}
-        <div className="border-t border-slate-700">
+        <div className="border-t border-gray-100">
           <button
             type="button"
             onClick={() => setClientesAbierto((v) => !v)}
-            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-slate-500 uppercase tracking-widest hover:text-slate-300 transition-colors"
+            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors"
           >
             <span>Clientes</span>
             <span className={`transition-transform duration-200 ${clientesAbierto ? "rotate-180" : ""}`}>
@@ -132,13 +132,13 @@ export default function DashboardLayout({
           {clientesAbierto && (
             <div className="px-3 pb-3 space-y-1">
               {CLIENTES.map((cl) => (
-                <div key={cl.nombre} className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-slate-700/40 transition-colors">
+                <div key={cl.nombre} className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors">
                   <div className="w-1.5 h-1.5 rounded-full shrink-0 mt-0.5"
-                    style={{ background: cl.tipo === "Retailer" ? "#6DB4E8" : "#F0A82A" }}
+                    style={{ background: cl.tipo === "Retailer" ? "#00A9E0" : "#FA4616" }}
                   />
                   <div className="min-w-0">
-                    <p className="text-slate-300 text-xs truncate">{cl.nombre}</p>
-                    <p className="text-slate-600 text-[10px]">{cl.tipo}</p>
+                    <p className="text-gray-700 text-xs truncate">{cl.nombre}</p>
+                    <p className="text-gray-400 text-[10px]">{cl.tipo}</p>
                   </div>
                 </div>
               ))}
@@ -147,14 +147,14 @@ export default function DashboardLayout({
         </div>
 
         {/* ── Propuestas Favoritas ── */}
-        <div className="border-t border-slate-700">
+        <div className="border-t border-gray-100">
           <button
             type="button"
             onClick={() => setFavoritasAbierto((v) => !v)}
-            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-slate-500 uppercase tracking-widest hover:text-slate-300 transition-colors"
+            className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors"
           >
             <span className="flex items-center gap-1.5">
-              <span style={{ color: "#F0A82A" }}>★</span> Favoritas
+              <span style={{ color: "#FA4616" }}>★</span> Favoritas
             </span>
             <span className={`transition-transform duration-200 ${favoritasAbierto ? "rotate-180" : ""}`}>
               ▾
@@ -163,15 +163,15 @@ export default function DashboardLayout({
           {favoritasAbierto && (
             <div className="px-3 pb-3 space-y-1">
               {FAVORITAS.length === 0 ? (
-                <p className="text-slate-600 text-xs px-2 py-1">Sin favoritas aún.</p>
+                <p className="text-gray-400 text-xs px-2 py-1">Sin favoritas aún.</p>
               ) : (
                 FAVORITAS.map((fav, i) => (
-                  <div key={i} className="flex items-start gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-700/40 transition-colors cursor-pointer group">
-                    <span className="text-[10px] mt-0.5 shrink-0" style={{ color: "#F0A82A" }}>★</span>
+                  <div key={i} className="flex items-start gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                    <span className="text-[10px] mt-0.5 shrink-0" style={{ color: "#FA4616" }}>★</span>
                     <div className="min-w-0">
-                      <p className="text-slate-300 text-xs truncate group-hover:text-white transition-colors">{fav.cliente}</p>
-                      <p className="text-slate-600 text-[10px] truncate">{fav.exhibidor}</p>
-                      <p className="text-slate-700 text-[10px]">{fav.fecha}</p>
+                      <p className="text-gray-700 text-xs truncate group-hover:text-gray-900 transition-colors">{fav.cliente}</p>
+                      <p className="text-gray-400 text-[10px] truncate">{fav.exhibidor}</p>
+                      <p className="text-gray-300 text-[10px]">{fav.fecha}</p>
                     </div>
                   </div>
                 ))
@@ -180,11 +180,11 @@ export default function DashboardLayout({
           )}
         </div>
 
-        <div className="p-3 border-t border-slate-700">
+        <div className="p-3 border-t border-gray-100">
           <button
             type="button"
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:text-slate-300 transition-colors text-sm"
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-50 transition-colors text-sm"
           >
             <span>↩</span> Cerrar Sesión
           </button>

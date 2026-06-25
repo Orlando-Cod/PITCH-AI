@@ -5,84 +5,84 @@ import { EXHIBIDORES, type Exhibidor } from "@/lib/data/exhibidores";
 
 const COLORES = {
   blue: {
-    border: "border-blue-500",
-    bg: "bg-blue-500/10",
-    badge: "bg-blue-500/20 text-blue-300",
-    tag: "bg-blue-600",
-    check: "bg-blue-500",
-    glow: "shadow-blue-500/20",
-    text: "text-blue-400",
-    row: "bg-blue-500/10",
+    border: "border-[#00A9E0]",
+    bg: "bg-[#00A9E0]/6",
+    badge: "bg-[#00A9E0]/12 text-[#007BAA]",
+    tag: "bg-[#00A9E0]",
+    check: "bg-[#00A9E0]",
+    glow: "shadow-[#00A9E0]/15",
+    text: "text-[#007BAA]",
+    row: "bg-[#00A9E0]/8",
   },
   orange: {
-    border: "border-orange-500",
-    bg: "bg-orange-500/10",
-    badge: "bg-orange-500/20 text-orange-300",
-    tag: "bg-orange-500",
-    check: "bg-orange-500",
-    glow: "shadow-orange-500/20",
-    text: "text-orange-400",
-    row: "bg-orange-500/10",
+    border: "border-[#FA4616]",
+    bg: "bg-[#FA4616]/6",
+    badge: "bg-[#FA4616]/12 text-[#C53510]",
+    tag: "bg-[#FA4616]",
+    check: "bg-[#FA4616]",
+    glow: "shadow-[#FA4616]/15",
+    text: "text-[#C53510]",
+    row: "bg-[#FA4616]/8",
   },
   green: {
-    border: "border-emerald-500",
-    bg: "bg-emerald-500/10",
-    badge: "bg-emerald-500/20 text-emerald-300",
-    tag: "bg-emerald-600",
-    check: "bg-emerald-500",
-    glow: "shadow-emerald-500/20",
-    text: "text-emerald-400",
-    row: "bg-emerald-500/10",
+    border: "border-[#84BD00]",
+    bg: "bg-[#84BD00]/6",
+    badge: "bg-[#84BD00]/12 text-[#5A7F00]",
+    tag: "bg-[#84BD00]",
+    check: "bg-[#84BD00]",
+    glow: "shadow-[#84BD00]/15",
+    text: "text-[#5A7F00]",
+    row: "bg-[#84BD00]/8",
   },
   purple: {
-    border: "border-purple-500",
-    bg: "bg-purple-500/10",
-    badge: "bg-purple-500/20 text-purple-300",
-    tag: "bg-purple-600",
-    check: "bg-purple-500",
-    glow: "shadow-purple-500/20",
-    text: "text-purple-400",
-    row: "bg-purple-500/10",
+    border: "border-[#84329B]",
+    bg: "bg-[#84329B]/6",
+    badge: "bg-[#84329B]/12 text-[#6B2880]",
+    tag: "bg-[#84329B]",
+    check: "bg-[#84329B]",
+    glow: "shadow-[#84329B]/15",
+    text: "text-[#6B2880]",
+    row: "bg-[#84329B]/8",
   },
   red: {
-    border: "border-red-500",
-    bg: "bg-red-500/10",
-    badge: "bg-red-500/20 text-red-300",
-    tag: "bg-red-600",
-    check: "bg-red-500",
-    glow: "shadow-red-500/20",
-    text: "text-red-400",
-    row: "bg-red-500/10",
+    border: "border-[#FA4616]",
+    bg: "bg-[#FA4616]/6",
+    badge: "bg-[#FA4616]/12 text-[#C53510]",
+    tag: "bg-[#FA4616]",
+    check: "bg-[#FA4616]",
+    glow: "shadow-[#FA4616]/15",
+    text: "text-[#C53510]",
+    row: "bg-[#FA4616]/8",
   },
   teal: {
-    border: "border-teal-500",
-    bg: "bg-teal-500/10",
-    badge: "bg-teal-500/20 text-teal-300",
-    tag: "bg-teal-600",
-    check: "bg-teal-500",
-    glow: "shadow-teal-500/20",
-    text: "text-teal-400",
-    row: "bg-teal-500/10",
+    border: "border-[#00A499]",
+    bg: "bg-[#00A499]/6",
+    badge: "bg-[#00A499]/12 text-[#007870]",
+    tag: "bg-[#00A499]",
+    check: "bg-[#00A499]",
+    glow: "shadow-[#00A499]/15",
+    text: "text-[#007870]",
+    row: "bg-[#00A499]/8",
   },
   indigo: {
-    border: "border-indigo-500",
-    bg: "bg-indigo-500/10",
-    badge: "bg-indigo-500/20 text-indigo-300",
-    tag: "bg-indigo-600",
-    check: "bg-indigo-500",
-    glow: "shadow-indigo-500/20",
-    text: "text-indigo-400",
-    row: "bg-indigo-500/10",
+    border: "border-[#84329B]",
+    bg: "bg-[#84329B]/6",
+    badge: "bg-[#84329B]/12 text-[#6B2880]",
+    tag: "bg-[#84329B]",
+    check: "bg-[#84329B]",
+    glow: "shadow-[#84329B]/15",
+    text: "text-[#6B2880]",
+    row: "bg-[#84329B]/8",
   },
   slate: {
-    border: "border-slate-400",
-    bg: "bg-slate-400/10",
-    badge: "bg-slate-400/20 text-slate-300",
-    tag: "bg-slate-500",
-    check: "bg-slate-400",
-    glow: "shadow-slate-400/20",
-    text: "text-slate-300",
-    row: "bg-slate-400/10",
+    border: "border-gray-400",
+    bg: "bg-gray-100",
+    badge: "bg-gray-100 text-gray-600",
+    tag: "bg-gray-500",
+    check: "bg-gray-500",
+    glow: "shadow-gray-300/20",
+    text: "text-gray-600",
+    row: "bg-gray-50",
   },
 } as const;
 
@@ -122,7 +122,7 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
               className={`relative text-left rounded-2xl border-2 transition-all duration-200 overflow-hidden
                 ${activo
                   ? `${c.border} ${c.bg} shadow-xl ${c.glow}`
-                  : "border-slate-700 bg-slate-800/40 hover:border-slate-500 hover:bg-slate-800/70"
+                  : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-md"
                 }`}
             >
               {/* Check de selección */}
@@ -140,34 +140,34 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
               </div>
 
               {/* Lámina técnica del exhibidor */}
-              <div className="relative w-full h-52 bg-slate-900 overflow-hidden">
+              <div className="relative w-full h-52 bg-gray-100 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={ex.imagen ?? `/api/exhibidor-image/${ex.id}`}
                   alt={ex.nombre}
                   className="w-full h-full object-contain object-center p-3"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-100/60 via-transparent to-transparent" />
               </div>
 
               {/* Contenido */}
               <div className="px-5 pt-4 pb-5 space-y-4">
                 {/* Nombre y dimensiones */}
                 <div>
-                  <p className="text-slate-400 text-xs">{ex.subtitulo}</p>
-                  <h3 className="text-white font-bold text-base mt-0.5">{ex.nombre}</h3>
-                  <p className="text-slate-500 text-xs font-mono mt-0.5">{ex.dimensiones}</p>
+                  <p className="text-gray-400 text-xs">{ex.subtitulo}</p>
+                  <h3 className="text-gray-900 font-bold text-base mt-0.5">{ex.nombre}</h3>
+                  <p className="text-gray-400 text-xs font-mono mt-0.5">{ex.dimensiones}</p>
                 </div>
 
                 {/* Tabla de capacidad por formato */}
                 <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
                     Unidades por espacio según formato
                   </p>
                   <div className="grid grid-cols-5 gap-1">
                     {/* Headers */}
                     {FORMATOS.map((f) => (
-                      <div key={f.key} className="text-center text-slate-600 text-xs py-1">
+                      <div key={f.key} className="text-center text-gray-400 text-xs py-1">
                         {f.label}
                       </div>
                     ))}
@@ -186,8 +186,8 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
                 {/* Características */}
                 <ul className="space-y-1">
                   {ex.caracteristicas.slice(0, 3).map((feat) => (
-                    <li key={feat} className="flex items-start gap-2 text-xs text-slate-400">
-                      <span className="text-slate-600 mt-0.5 shrink-0">·</span>
+                    <li key={feat} className="flex items-start gap-2 text-xs text-gray-500">
+                      <span className="text-gray-300 mt-0.5 shrink-0">·</span>
                       {feat}
                     </li>
                   ))}
@@ -212,16 +212,16 @@ export default function SelectorExhibidor({ valor, onChange }: Props) {
       {seleccionado && (() => {
         const ex = EXHIBIDORES.find((e) => e.id === seleccionado)!;
         return (
-          <div className="mt-5 bg-slate-800/50 border border-slate-700 rounded-xl p-4 flex items-center justify-between">
+          <div className="mt-5 bg-gray-50 border border-gray-200 rounded-xl p-4 flex items-center justify-between">
             <div>
-              <span className="text-slate-400 text-sm">Seleccionado: </span>
-              <span className="text-white font-semibold text-sm">{ex.nombre}</span>
-              <span className="text-slate-500 text-sm"> · {ex.dimensiones}</span>
+              <span className="text-gray-500 text-sm">Seleccionado: </span>
+              <span className="text-gray-900 font-semibold text-sm">{ex.nombre}</span>
+              <span className="text-gray-400 text-sm"> · {ex.dimensiones}</span>
             </div>
             <button
               type="button"
               onClick={() => seleccionar("")}
-              className="text-slate-500 hover:text-slate-300 text-xs transition-colors"
+              className="text-gray-400 hover:text-[#00A9E0] text-xs transition-colors"
             >
               Cambiar
             </button>
