@@ -52,6 +52,7 @@ export const EXHIBIDORES: Exhibidor[] = [
       "96p": 24,
     },
     color: "blue",
+    imagen: "/exhibidores/metalico-9.png",
   },
   {
     id: "metalico-16",
