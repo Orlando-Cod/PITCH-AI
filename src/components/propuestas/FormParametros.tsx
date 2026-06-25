@@ -44,8 +44,8 @@ interface Props {
 }
 
 const input =
-  "w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors";
-const label = "block text-xs font-medium text-slate-400 mb-1.5";
+  "w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#00A9E0] focus:ring-1 focus:ring-[#00A9E0]/20 transition-colors";
+const label = "block text-xs font-medium text-gray-600 mb-1.5";
 
 export default function FormParametros({ exhibidorId, valor, onChange }: Props) {
   const exhibidor = EXHIBIDORES.find((e) => e.id === exhibidorId);
@@ -106,7 +106,7 @@ export default function FormParametros({ exhibidorId, valor, onChange }: Props) 
               <option key={n} value={n}>{n} {n === 1 ? "cara" : "caras"}</option>
             ))}
           </select>
-          <p className="text-xs text-slate-600 mt-1">
+          <p className="text-xs text-gray-400 mt-1">
             El exhibidor tiene {maxCaras} {maxCaras === 1 ? "cara" : "caras"} disponible{maxCaras > 1 ? "s" : ""}
           </p>
         </div>
@@ -152,7 +152,7 @@ export default function FormParametros({ exhibidorId, valor, onChange }: Props) 
       {/* Filtro de licencias */}
       <div>
         <label className={label}>Licencias</label>
-        <p className="text-xs text-slate-600 mb-2">
+        <p className="text-xs text-gray-400 mb-2">
           Deja vacío para incluir todas las licencias disponibles.
         </p>
         <div className="flex flex-wrap gap-2">
@@ -171,9 +171,10 @@ export default function FormParametros({ exhibidorId, valor, onChange }: Props) 
                 }}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
                   activa
-                    ? "bg-blue-600 border-blue-500 text-white"
-                    : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300"
+                    ? "text-white border-[#00A9E0]"
+                    : "bg-gray-50 border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
                 }`}
+                style={activa ? { background: "#00A9E0" } : undefined}
               >
                 {lic}
               </button>

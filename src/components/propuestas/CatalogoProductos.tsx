@@ -21,13 +21,13 @@ const PRECIO_LABELS: Record<string, string> = {
 };
 
 const LICENCIA_COLOR: Partial<Record<Licencia, string>> = {
-  "Disney":           "#6DB4E8",
-  "Mattel":           "#D4518C",
-  "Hasbro":           "#7C3FA0",
-  "Universal":        "#F0A82A",
-  "Paramount":        "#CC5C42",
-  "Bluey":            "#4EA8AA",
-  "Sicoben Original": "#8CC452",
+  "Disney":           "#00A9E0",
+  "Mattel":           "#E31C79",
+  "Hasbro":           "#84329B",
+  "Universal":        "#FA4616",
+  "Paramount":        "#C53510",
+  "Bluey":            "#00A499",
+  "Sicoben Original": "#84BD00",
 };
 
 function etiquetaPageCount(paginas: number): string {
@@ -37,13 +37,13 @@ function etiquetaPageCount(paginas: number): string {
 
 function colorCategoria(grupo: GrupoCategoria): string {
   const m: Record<GrupoCategoria, string> = {
-    Lectura:     "bg-blue-500/20 text-blue-300 border-blue-500/30",
-    Colorear:    "bg-purple-500/20 text-purple-300 border-purple-500/30",
-    Actividades: "bg-green-500/20 text-green-300 border-green-500/30",
-    Pasatiempos: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-    Packs:       "bg-orange-500/20 text-orange-300 border-orange-500/30",
+    Lectura:     "bg-[#00A9E0]/10 text-[#007BAA] border-[#00A9E0]/30",
+    Colorear:    "bg-[#84329B]/10 text-[#6B2880] border-[#84329B]/30",
+    Actividades: "bg-[#84BD00]/10 text-[#5A7F00] border-[#84BD00]/30",
+    Pasatiempos: "bg-[#FFA300]/10 text-[#CC8200] border-[#FFA300]/30",
+    Packs:       "bg-[#FA4616]/10 text-[#C53510] border-[#FA4616]/30",
   };
-  return m[grupo] ?? "bg-slate-500/20 text-slate-300";
+  return m[grupo] ?? "bg-gray-100 text-gray-600";
 }
 
 interface Props {
@@ -109,7 +109,6 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
     return counts;
   }, [soloConStock, licenciasSeleccionadas]);
 
-  // Vista agrupada cuando hay múltiples licencias seleccionadas
   const productosPorLicencia = useMemo<Record<string, Producto[]> | null>(() => {
     if (!licenciasSeleccionadas || licenciasSeleccionadas.length <= 1) return null;
     const grupos: Record<string, Producto[]> = {};
@@ -138,15 +137,17 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
         disabled={sinStock}
         className={`relative text-left rounded-xl border transition-all duration-150 overflow-hidden ${
           sinStock
-            ? "opacity-40 cursor-not-allowed border-slate-700 bg-slate-800/20"
+            ? "opacity-40 cursor-not-allowed border-gray-200 bg-gray-50"
             : seleccionado
-            ? "border-blue-500 bg-blue-500/10 shadow-lg shadow-blue-500/10"
-            : "border-slate-700/60 bg-slate-800/40 hover:border-slate-500 hover:bg-slate-800/70"
+            ? "border-[#00A9E0] shadow-md"
+            : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
         }`}
+        style={seleccionado ? { background: "rgba(0,169,224,0.04)" } : undefined}
       >
         {/* Check de selección */}
         {seleccionado && (
-          <div className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
+          <div className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full flex items-center justify-center shadow-md"
+            style={{ background: "#00A9E0" }}>
             <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 12 12" fill="none">
               <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -155,7 +156,7 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
 
         {/* Portada del libro */}
         {p.portada ? (
-          <div className="w-full h-32 bg-slate-700 overflow-hidden flex items-center justify-center">
+          <div className="w-full h-32 bg-gray-100 overflow-hidden flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={p.portada}
@@ -165,7 +166,7 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
             />
           </div>
         ) : (
-          <div className="w-full h-32 bg-slate-700 flex items-center justify-center text-3xl">
+          <div className="w-full h-32 bg-gray-100 flex items-center justify-center text-3xl">
             📚
           </div>
         )}
@@ -177,33 +178,33 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
               {grupoP}
             </span>
             {p.licencia !== "Sicoben Original" && (
-              <span className="text-xs font-medium" style={{ color: LICENCIA_COLOR[p.licencia] ?? "#94a3b8" }}>
+              <span className="text-xs font-medium" style={{ color: LICENCIA_COLOR[p.licencia] ?? "#6B7280" }}>
                 {p.licencia}
               </span>
             )}
           </div>
 
-          <p className="text-white text-sm font-semibold leading-tight mb-1 pr-5 line-clamp-2">
+          <p className="text-gray-900 text-sm font-semibold leading-tight mb-1 pr-5 line-clamp-2">
             {p.coleccion}
           </p>
 
           <div className="flex items-center justify-between mt-2">
             <div className="space-y-0.5">
-              <div className="text-xs text-slate-500">{etiquetaPageCount(p.paginas)}{p.portadas > 1 ? ` · ${p.portadas} portadas` : ""}</div>
+              <div className="text-xs text-gray-400">{etiquetaPageCount(p.paginas)}{p.portadas > 1 ? ` · ${p.portadas} portadas` : ""}</div>
               <div className="text-xs">
-                Stock: <span className={p.stock < 50 ? "text-yellow-400" : "text-green-400 font-medium"}>{p.stock}</span>
+                Stock: <span className={p.stock < 50 ? "font-medium" : "font-medium"} style={{ color: p.stock < 50 ? "#D97706" : "#16A34A" }}>{p.stock}</span>
               </div>
             </div>
             <div className="text-right">
-              <span className="text-white font-bold text-base">${p.precio.toFixed(2)}</span>
-              <p className="text-slate-500 text-xs">MOQ {p.moq}</p>
+              <span className="text-gray-900 font-bold text-base">${p.precio.toFixed(2)}</span>
+              <p className="text-gray-400 text-xs">MOQ {p.moq}</p>
             </div>
           </div>
 
           {(p.tapaDura || p.tieneStickers) && (
             <div className="flex gap-1 mt-1.5 flex-wrap">
-              {p.tapaDura && <span className="text-xs bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">Tapa dura</span>}
-              {p.tieneStickers && <span className="text-xs bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">+ Stickers</span>}
+              {p.tapaDura && <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">Tapa dura</span>}
+              {p.tieneStickers && <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">+ Stickers</span>}
             </div>
           )}
         </div>
@@ -216,15 +217,15 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
       {/* Indicador de licencias activas */}
       {licenciasSeleccionadas && licenciasSeleccionadas.length > 0 && (
         <div className="flex items-center gap-2 text-xs flex-wrap">
-          <span className="text-slate-500">Mostrando:</span>
+          <span className="text-gray-400">Mostrando:</span>
           {licenciasSeleccionadas.map((lic) => (
             <span
               key={lic}
               className="font-medium px-2 py-0.5 rounded-full"
               style={{
-                color: LICENCIA_COLOR[lic] ?? "#64748b",
-                background: `${LICENCIA_COLOR[lic] ?? "#64748b"}18`,
-                border: `1px solid ${LICENCIA_COLOR[lic] ?? "#64748b"}40`,
+                color: LICENCIA_COLOR[lic] ?? "#6B7280",
+                background: `${LICENCIA_COLOR[lic] ?? "#6B7280"}12`,
+                border: `1px solid ${LICENCIA_COLOR[lic] ?? "#6B7280"}30`,
               }}
             >
               {lic}
@@ -236,20 +237,20 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
       {/* ── Controles ── */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">🔍</span>
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">🔍</span>
           <input
             type="text"
             placeholder="Buscar por colección o SKU..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-9 pr-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-white border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#00A9E0] transition-colors"
           />
         </div>
 
         <select
           value={filtroPrecio}
           onChange={(e) => setFiltroPrecio(e.target.value)}
-          className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+          className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:border-[#00A9E0]"
         >
           <option value="">Todos los precios</option>
           {Object.entries(PRECIO_LABELS).map(([k, v]) => (
@@ -257,12 +258,12 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
           ))}
         </select>
 
-        <label className="flex items-center gap-2 text-sm text-slate-400 cursor-pointer whitespace-nowrap">
+        <label className="flex items-center gap-2 text-sm text-gray-500 cursor-pointer whitespace-nowrap">
           <input
             type="checkbox"
             checked={soloConStock}
             onChange={(e) => setSoloConStock(e.target.checked)}
-            className="accent-blue-500"
+            className="accent-[#FA4616]"
           />
           Solo con stock
         </label>
@@ -280,12 +281,13 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
               onClick={() => setGrupo(g.key)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 activo
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
+                  ? "text-white"
+                  : "bg-gray-100 text-gray-500 hover:text-gray-800 hover:bg-gray-200"
               }`}
+              style={activo ? { background: "#FA4616" } : undefined}
             >
               {g.label}
-              <span className={`ml-1.5 text-xs ${activo ? "text-blue-200" : "text-slate-600"}`}>
+              <span className={`ml-1.5 text-xs ${activo ? "text-white/70" : "text-gray-400"}`}>
                 {count}
               </span>
             </button>
@@ -295,12 +297,13 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
 
       {/* ── Resumen de selección ── */}
       {seleccionados.length > 0 && (
-        <div className="bg-blue-600/10 border border-blue-600/30 rounded-xl px-4 py-2.5 flex items-center justify-between">
-          <span className="text-blue-300 text-sm font-medium">
+        <div className="rounded-xl px-4 py-2.5 flex items-center justify-between border"
+          style={{ background: "rgba(0,169,224,0.06)", borderColor: "rgba(0,169,224,0.2)" }}>
+          <span className="text-sm font-medium" style={{ color: "#007BAA" }}>
             {seleccionados.length} producto{seleccionados.length !== 1 ? "s" : ""} seleccionado{seleccionados.length !== 1 ? "s" : ""}
           </span>
           {maxSeleccion && (
-            <span className="text-blue-400 text-xs">
+            <span className="text-xs" style={{ color: "#00A9E0" }}>
               {seleccionados.length} / {maxSeleccion}
             </span>
           )}
@@ -309,24 +312,23 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
 
       {/* ── Grid de productos ── */}
       {productosFiltrados.length === 0 ? (
-        <div className="text-center py-12 text-slate-600">
+        <div className="text-center py-12 text-gray-400">
           <div className="text-4xl mb-2">📭</div>
           <p className="text-sm">Sin productos para estos filtros.</p>
         </div>
       ) : productosPorLicencia ? (
-        // Vista agrupada por licencia (cuando hay 2+ licencias seleccionadas)
         <div className="space-y-6 max-h-[600px] overflow-y-auto pr-1">
           {Object.entries(productosPorLicencia).map(([lic, prods]) => {
             if (prods.length === 0) return null;
-            const color = LICENCIA_COLOR[lic as Licencia] ?? "#64748b";
+            const color = LICENCIA_COLOR[lic as Licencia] ?? "#6B7280";
             return (
               <div key={lic}>
-                <div className="flex items-center gap-2 mb-3 sticky top-0 bg-slate-950/95 backdrop-blur-sm py-1.5">
+                <div className="flex items-center gap-2 mb-3 sticky top-0 bg-white/95 backdrop-blur-sm py-1.5">
                   <span className="text-sm font-semibold" style={{ color }}>{lic}</span>
-                  <span className="text-xs text-slate-500">
+                  <span className="text-xs text-gray-400">
                     {prods.length} producto{prods.length !== 1 ? "s" : ""}
                   </span>
-                  <div className="flex-1 h-px ml-1" style={{ background: `${color}30` }} />
+                  <div className="flex-1 h-px ml-1" style={{ background: `${color}25` }} />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {prods.map((p) => renderCard(p))}
@@ -336,7 +338,6 @@ export default function CatalogoProductos({ seleccionados, onToggle, maxSeleccio
           })}
         </div>
       ) : (
-        // Vista plana (1 licencia o sin filtro de licencia)
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[560px] overflow-y-auto pr-1">
           {productosFiltrados.map((p) => renderCard(p))}
         </div>

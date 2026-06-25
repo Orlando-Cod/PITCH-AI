@@ -10,9 +10,9 @@ const PAGINAS = [
 
 export default function LegalLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-300">
+    <div className="min-h-screen bg-white text-gray-700">
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-10 backdrop-blur">
+      <header className="border-b border-gray-200 bg-white/90 sticky top-0 z-10 backdrop-blur">
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-6">
           <Link href="/login" className="shrink-0">
             <LogoSicoben size="xs" />
@@ -22,7 +22,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-xs text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap px-2 py-1 rounded-md hover:bg-slate-800"
+                className="text-xs text-gray-500 hover:text-gray-800 transition-colors whitespace-nowrap px-2 py-1 rounded-md hover:bg-gray-100"
               >
                 {p.label}
               </Link>
@@ -37,9 +37,9 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 mt-16">
+      <footer className="border-t border-gray-200 mt-16">
         <div className="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs">
+          <p className="text-gray-400 text-xs">
             © {new Date().getFullYear()} Sicoben Ediciones. Uso interno exclusivo.
           </p>
           <nav className="flex items-center gap-4">
@@ -47,7 +47,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+                className="text-xs text-gray-400 hover:text-[#00A9E0] transition-colors"
               >
                 {p.label}
               </Link>

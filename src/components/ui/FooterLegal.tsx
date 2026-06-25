@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function FooterLegal() {
   return (
-    <footer className="border-t border-slate-800/60 mt-auto">
+    <footer className="border-t border-gray-200 mt-auto">
       <div className="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-slate-600 text-xs">
+        <p className="text-gray-400 text-xs">
           © {new Date().getFullYear()} Sicoben Ediciones
         </p>
         <nav className="flex items-center gap-3">
@@ -17,7 +17,7 @@ export default function FooterLegal() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+              className="text-xs text-gray-400 hover:text-[#00A9E0] transition-colors"
               target="_blank"
             >
               {l.label}
