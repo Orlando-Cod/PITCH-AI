@@ -150,7 +150,7 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nombre@sicoben.com"
                   required
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-[#00A9E0] focus:ring-1 focus:ring-[#00A9E0]/20 transition-all"
+                  className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-[#1A1A2E] placeholder-gray-400 text-sm focus:outline-none focus:border-[#FA4616] focus:ring-2 focus:ring-[#FA4616]/10 transition-all"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-[#00A9E0] focus:ring-1 focus:ring-[#00A9E0]/20 transition-all"
+                  className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-[#1A1A2E] placeholder-gray-400 text-sm focus:outline-none focus:border-[#FA4616] focus:ring-2 focus:ring-[#FA4616]/10 transition-all"
                 />
               </div>
 
